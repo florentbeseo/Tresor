@@ -25,7 +25,7 @@ extern bool Player_movement(direction_t dir){
         }
         break;
       case DEP_DOWN:
-        if(!(player.position_y >= HEIGHT_MAP)){
+        if(!(player.position_y >= HEIGHT_MAP-1)){
           player.position_y++;
           moved = true;
         }
@@ -37,7 +37,7 @@ extern bool Player_movement(direction_t dir){
         }
         break;
       case DEP_RIGHT:
-        if(!(player.position_x >= WIDTH_MAP)){
+        if(!(player.position_x >= WIDTH_MAP-1)){
           player.position_x++;
           moved = true;
         }
