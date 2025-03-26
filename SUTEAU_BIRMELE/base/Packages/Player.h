@@ -4,12 +4,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <stdbool.h>
+#include "main.h"
+#include "assert.h"
 
 
 typedef struct Player_s Player;
 
-extern void Player_Init(void);
-extern bool Player_Movement(direction dir);
-extern coordinate Player_Get_pos(void);
+extern void Player_init(void);
+extern bool Player_movement(direction_t dir);
+//extern coordinate Player_get_pos(void);
 
 #endif //PLAYER_H

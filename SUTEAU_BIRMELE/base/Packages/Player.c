@@ -3,18 +3,51 @@
 //
 #include "Player.h"
 #include <stdbool.h>
+#include "main.h"
 struct Player_s{
     int position_x;
     int position_y;
 };
 static Player player;
 
-extern void Player_Init(void){
+extern void Player_init(void){
   player.position_x = 0;
   player.position_y = 0;
 };
 
-extern bool Player_Movement(direction dir){
-
+extern bool Player_movement(direction_t dir){
+    bool moved = false;
+    switch(dir){
+      case DEP_UP:
+        if(!(player.position_y <= 0)){
+          player.position_y--;
+          moved = true;
+        }
+        break;
+      case DEP_DOWN:
+        if(!(player.position_y >= HEIGHT_MAP)){
+          player.position_y++;
+          moved = true;
+        }
+        break;
+      case DEP_LEFT:
+        if(!(player.position_x <= 0)){
+          player.position_x--;
+          moved = true;
+        }
+        break;
+      case DEP_RIGHT:
+        if(!(player.position_x >= WIDTH_MAP)){
+          player.position_x++;
+          moved = true;
+        }
+        break;
+      default:
+        assert(0);
+        break;
+    }
+    return moved;
 };
+
+extern
 
