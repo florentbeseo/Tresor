@@ -9,12 +9,10 @@
 #define HEIGHT_MAP 10
 #define WIDTH_MAP 10
 
-/*typedef struct{
+typedef struct{
     int x;
     int y;
 }Coordinates;
-
-Coordinates Player;*/
 
 typedef enum{
     DEP_UP = 0,
@@ -22,8 +20,6 @@ typedef enum{
     DEP_LEFT,
     DEP_RIGHT
 }direction_t;
-
-Coordinates Player;
 
 void Initialisation(void);
 

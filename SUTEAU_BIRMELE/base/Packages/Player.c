@@ -1,9 +1,9 @@
 //
 // Created by florent on 26/03/25.
 //
+
 #include "Player.h"
 #include <stdbool.h>
-#include "main.h"
 struct Player_s{
     int position_x;
     int position_y;
@@ -47,7 +47,13 @@ extern bool Player_movement(direction_t dir){
         break;
     }
     return moved;
-};
+}
 
-extern
+extern Coordinates Player_get_pos(void){
+  Coordinates pos;
+  pos.x = player.position_x;
+  pos.y = player.position_y;
+  return pos;
+}
+
 

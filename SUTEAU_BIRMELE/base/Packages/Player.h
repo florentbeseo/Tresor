@@ -12,6 +12,7 @@ typedef struct Player_s Player;
 
 extern void Player_init(void);
 extern bool Player_movement(direction_t dir);
-//extern coordinate Player_get_pos(void);
+extern Coordinates Player_get_pos(void);
+
 
 #endif //PLAYER_H
