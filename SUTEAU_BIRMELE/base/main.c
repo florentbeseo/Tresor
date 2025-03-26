@@ -1,9 +1,29 @@
 #include <stdlib.h>
-#include "Packages/grille.h"
-#include "Packages/getch.h"
+#include <stdio.h>
+#include "grille.h"
+#include "getch.h"
+#include "Map.h"
+#include "main.h"
 
 #define COLONNE 5
 #define LIGNE 4
+
+
+typedef enum
+{
+    INIT = 0,
+    AQUISITION_CLAVIER,
+    VERIF_VICTOIRE,
+    VICTOIRE
+}MAE_Global;
+
+typedef enum
+{
+    D_Droite = 0,
+    D_Gauche,
+    D_Haut,
+    D_Bas
+}MAE_Deplacement;
 
 int main()
 {
@@ -12,8 +32,47 @@ int main()
     char **test_grille;
     int pos_joueur_x = 0;
     int pos_joueur_y = 0;
-    
+    MAE_Global GameState = INIT;
+    MAE_Deplacement deplacementState;
 
+
+    switch (GameState){
+        case INIT:
+            Initialisation();
+            GameState = AQUISITION_CLAVIER;
+            break;
+        case AQUISITION_CLAVIER:
+            car = getch();
+            //setCase([pos_joueur_x][pos_joueur_y] = ' ';
+            switch(car)
+            {
+                case 'q':
+                    movement(
+                    fin = 1;
+                break;
+                case 'i':
+                    pos_joueur_x--;
+                break;
+                case 'k':
+                    pos_joueur_x++;
+                break;
+                case 'j':
+                    pos_joueur_y--;
+                break;
+                case 'l':
+                    pos_joueur_y++;
+                break;
+            }
+            GameState = VERIF_VICTOIRE;
+            break;
+        case VERIF_VICTOIRE:
+
+            break;
+        case VICTOIRE:
+            break;
+        default:
+            break;
+    }
 
 
     //Allouer memoire pour le tableau
@@ -71,3 +130,20 @@ int main()
     free(test_grille);
 
 }
+
+void Initialisation(void)
+{
+    PlayerInit();
+    system("clear");
+    printf("Bienvenue dans le jeu\n");
+    printf("Pour vous deplacer utilisez les touches suivantes:\n");
+    printf("i pour monter\n");
+    printf("k pour descendre\n");
+    printf("j pour aller a gauche\n");
+    printf("l pour aller a droite\n");
+    printf("q pour quitter\n");
+}
+
+
+
+
