@@ -32,9 +32,17 @@
 #include "Packages/Map.h"
 #include "Packages/Player.h"
 #include "Packages/Treasure.h"
+#include "Packages/Trap.h"
 #include "Packages/main.h"
 
+#define NB_TRAP_DEFAULT 5
+#define NB_TRAP_MAX 20
+
+Trap *trap_tab[NB_TRAP_MAX];
+
 static char PLAYER_CHAR = 'j';
+static char TRAP_CHAR = 'X';
+static char TREASURE_CHAR = 'O';
 
 typedef enum
 {
@@ -44,6 +52,8 @@ typedef enum
     VICTOIRE
 }MAE_Global;
 
+static int nb_trap = 0;
+
 int main()
 {
     char car ;
@@ -51,6 +61,7 @@ int main()
     MAE_Global GameState = INIT;
     Coordinates OldPos = {0,0};
     bool moved = false;
+
 
     while(!end){
         switch (GameState){
@@ -60,8 +71,10 @@ int main()
                 GameState = AQUISITION_CLAVIER;
                 break;
             case VERIF_VICTOIRE:
-                printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
+#ifdef AFFICHER_TRESOR
+              	printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
                 printf("pos tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
+#endif
                 if (Player_get_pos().x == Treasure_get_pos().x && Player_get_pos().y == Treasure_get_pos().y)
                 {
                     printf("Vous avez trouvé le trésor !\n");
@@ -69,6 +82,16 @@ int main()
                 }
                 else
                 {
+                    for (int i = 0; i < nb_trap; i++)
+                    {
+                        if (Player_get_pos().x == Trap_get_pos(trap_tab[i]).x && Player_get_pos().y == Trap_get_pos(trap_tab[i]).y)
+                        {
+                            Trap_delete(trap_tab[i]);
+                            nb_trap--;
+                            printf("Vous êtes tombé dans un piège !\n");
+
+                        }
+                    }
                     GameState = AQUISITION_CLAVIER;
                 }
                 break;
@@ -96,14 +119,20 @@ int main()
                 }
                 if (moved){
                       Map_set_case(Player_get_pos(), OldPos, PLAYER_CHAR);
-                      Map_print();
                       OldPos = Player_get_pos();
+                      Map_print();
+                      printf("pieges : %d\n", nb_trap);
                       GameState = VERIF_VICTOIRE;
                 }
                 break;
             case VICTOIRE:
+                Player_stop();
                 printf("Vous avez gagné !\n");
                 end = 1;
+                for (int k = 0; k<nb_trap; k++)
+                {
+                    Trap_delete(Trap_new());
+                }
                 break;
             default:
                 break;
@@ -115,13 +144,48 @@ int main()
 
 void Initialisation(void)
 {
+    bool Treasure_OK = false;
+    bool Trap_OK = false;
+    nb_trap = NB_TRAP_DEFAULT;
     Map_init();
     Player_init();
-    Treasure_init();
+    while(!Treasure_OK)
+    {
+        Treasure_init();
+        if (Player_get_pos().x != Treasure_get_pos().x || Player_get_pos().y != Treasure_get_pos().y)
+        {
+            Treasure_OK = true;
+        }
+    }
+
+    for (int i = 0; i < nb_trap; i++)
+    {
+        Trap_OK = false;
+        while(!Trap_OK)
+        {
+			trap_tab[i] = Trap_new();
+            if (Player_get_pos().x != Trap_get_pos(trap_tab[i]).x || Player_get_pos().y != Trap_get_pos(trap_tab[i]).y)
+            {
+                Trap_OK = true;
+            }
+            for (int j = 0; j < i; j++)
+            {
+                if (Trap_get_pos(trap_tab[i]).x == Trap_get_pos(trap_tab[j]).x && Trap_get_pos(trap_tab[i]).y == Trap_get_pos(trap_tab[j]).y)
+                {
+                    Trap_OK = false;
+                }
+            }
+        }
+#ifdef AFFICHER_PIEGES
+        Map_set_case(Trap_get_pos(trap_tab[i]), Trap_get_pos(trap_tab[i]), TRAP_CHAR);
+#endif
+    }
 
     Map_set_case(Player_get_pos(),Player_get_pos(), PLAYER_CHAR);
-    Map_set_case(Treasure_get_pos(),Treasure_get_pos(), 'T');
 
+#ifdef AFFICHER_TRESOR
+    Map_set_case(Treasure_get_pos(),Treasure_get_pos(), TREASURE_CHAR);
+#endif
     Map_print();
 }
 

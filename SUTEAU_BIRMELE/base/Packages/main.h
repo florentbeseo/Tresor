@@ -1,10 +1,16 @@
 //
 // Created by florent on 26/03/25.
 //
-
+#include "Trap.h"
 #ifndef MAIN_H
 #define MAIN_H
 
+#define AFFICHER_DEBUG 1
+
+#if AFFICHER_DEBUG
+    #define AFFICHER_TRESOR
+    #define AFFICHER_PIEGES
+#endif
 
 #define HEIGHT_MAP 10
 #define WIDTH_MAP 10
