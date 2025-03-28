@@ -1,0 +1,188 @@
+\hypertarget{Player_8c}{}\doxysection{Packages/\+Player.c File Reference}
+\label{Player_8c}\index{Packages/Player.c@{Packages/Player.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Player.\+h\char`\"{}}\newline
+Include dependency graph for Player.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{Player_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtransition__t}{transition\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structPlayer__s}{Player\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t}} \{ \newline
+\mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}{S\+\_\+\+AUCISSE}} =0
+, \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}{S\+\_\+\+REPOS}}
+, \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}{S\+\_\+\+ACTIF}}
+, \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}{S\+\_\+\+DEAD}}
+, \newline
+\mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}{NB\+\_\+\+STATE}}
+ \}
+\item 
+enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}} \{ \newline
+\mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}{E\+\_\+\+UP}} = 0
+, \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}{E\+\_\+\+DOWN}}
+, \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971}{E\+\_\+\+LEFT}}
+, \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5}{E\+\_\+\+RIGHT}}
+, \newline
+\mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}{E\+\_\+\+STOP}}
+, \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}{NB\+\_\+\+EVENT}}
+ \}
+\item 
+enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}} \{ \newline
+\mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}{A\+\_\+\+NOP}} = 0
+, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}{A\+\_\+\+GO\+\_\+\+UP}}
+, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}{A\+\_\+\+GO\+\_\+\+DOWN}}
+, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}{A\+\_\+\+GO\+\_\+\+LEFT}}
+, \newline
+\mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}{A\+\_\+\+GO\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Player_8c_afdefe502f9fcd570d8d08518d4849047}{Player\+\_\+init}} (void)
+\item 
+\mbox{\hyperlink{structCoordinates}{Coordinates}} \mbox{\hyperlink{Player_8c_afb0255fa672477a10429a61a93f121ba}{Player\+\_\+get\+\_\+pos}} (void)
+\item 
+void \mbox{\hyperlink{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}{Player\+\_\+start}} (void)
+\item 
+void \mbox{\hyperlink{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}{Player\+\_\+stop}} (void)
+\item 
+bool \mbox{\hyperlink{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}{Player\+\_\+movement}} (\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}} dir)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}} 
+\index{Player.c@{Player.c}!action\_t@{action\_t}}
+\index{action\_t@{action\_t}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{action\_t}{action\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_NOP@{A\_NOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_NOP@{A\_NOP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}} 
+A\+\_\+\+NOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_UP@{A\_GO\_UP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_UP@{A\_GO\_UP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}} 
+A\+\_\+\+GO\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_DOWN@{A\_GO\_DOWN}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_DOWN@{A\_GO\_DOWN}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}} 
+A\+\_\+\+GO\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_LEFT@{A\_GO\_LEFT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_LEFT@{A\_GO\_LEFT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}} 
+A\+\_\+\+GO\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_RIGHT@{A\_GO\_RIGHT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_RIGHT@{A\_GO\_RIGHT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}} 
+A\+\_\+\+GO\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}} 
+\index{Player.c@{Player.c}!event\_t@{event\_t}}
+\index{event\_t@{event\_t}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{event\_t}{event\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_UP@{E\_UP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_UP@{E\_UP}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}} 
+E\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DOWN@{E\_DOWN}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_DOWN@{E\_DOWN}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}} 
+E\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_LEFT@{E\_LEFT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_LEFT@{E\_LEFT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971}} 
+E\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_RIGHT@{E\_RIGHT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_RIGHT@{E\_RIGHT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5}} 
+E\+\_\+\+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_STOP@{E\_STOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_STOP@{E\_STOP}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}} 
+E\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NB\_EVENT@{NB\_EVENT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!NB\_EVENT@{NB\_EVENT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}} 
+NB\+\_\+\+EVENT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248}} 
+\index{Player.c@{Player.c}!state\_t@{state\_t}}
+\index{state\_t@{state\_t}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{state\_t}{state\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_AUCISSE@{S\_AUCISSE}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_AUCISSE@{S\_AUCISSE}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}} 
+S\+\_\+\+AUCISSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_REPOS@{S\_REPOS}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_REPOS@{S\_REPOS}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}} 
+S\+\_\+\+REPOS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_ACTIF@{S\_ACTIF}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_ACTIF@{S\_ACTIF}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}} 
+S\+\_\+\+ACTIF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_DEAD@{S\_DEAD}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_DEAD@{S\_DEAD}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}} 
+S\+\_\+\+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NB\_STATE@{NB\_STATE}!Player.c@{Player.c}}\index{Player.c@{Player.c}!NB\_STATE@{NB\_STATE}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}} 
+NB\+\_\+\+STATE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Player_8c_afb0255fa672477a10429a61a93f121ba}\label{Player_8c_afb0255fa672477a10429a61a93f121ba}} 
+\index{Player.c@{Player.c}!Player\_get\_pos@{Player\_get\_pos}}
+\index{Player\_get\_pos@{Player\_get\_pos}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{Player\_get\_pos()}{Player\_get\_pos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCoordinates}{Coordinates}} Player\+\_\+get\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Player_8c_afdefe502f9fcd570d8d08518d4849047}\label{Player_8c_afdefe502f9fcd570d8d08518d4849047}} 
+\index{Player.c@{Player.c}!Player\_init@{Player\_init}}
+\index{Player\_init@{Player\_init}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{Player\_init()}{Player\_init()}}
+{\footnotesize\ttfamily void Player\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}\label{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}} 
+\index{Player.c@{Player.c}!Player\_movement@{Player\_movement}}
+\index{Player\_movement@{Player\_movement}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{Player\_movement()}{Player\_movement()}}
+{\footnotesize\ttfamily bool Player\+\_\+movement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}}}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}\label{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}} 
+\index{Player.c@{Player.c}!Player\_start@{Player\_start}}
+\index{Player\_start@{Player\_start}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{Player\_start()}{Player\_start()}}
+{\footnotesize\ttfamily void Player\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}\label{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}} 
+\index{Player.c@{Player.c}!Player\_stop@{Player\_stop}}
+\index{Player\_stop@{Player\_stop}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{Player\_stop()}{Player\_stop()}}
+{\footnotesize\ttfamily void Player\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

@@ -14,6 +14,7 @@ typedef struct Player_s Player;
 
 extern void Player_init(void);
 extern void Player_start(void);
+extern void Player_stop(void);
 extern bool Player_movement(direction_t dir);
 extern Coordinates Player_get_pos(void);
 

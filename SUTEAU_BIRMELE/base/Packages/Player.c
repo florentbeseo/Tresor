@@ -6,7 +6,9 @@
 #include <stdbool.h>
 #include "Player.h"
 
-
+/**
+*
+*/
 typedef enum
 {
     S_AUCISSE =0,
@@ -41,8 +43,20 @@ typedef struct
     action_t action;
 }transition_t;
 
+struct Player_s{
+    int position_x;
+    int position_y;
+    state_t state;
+};
+//Prototype
+static void run(event_t);
+
+//Variables
+static Player player;
 static const transition_t transition_table[NB_STATE][NB_EVENT] =
 {
+    //Au repos le joueur peut demmander a se déplacer vers le haut.
+    //Si le deplacement est possible il fait l'action aller vers le haut et se remet au repos.
     [S_REPOS][E_UP] = {S_REPOS,A_GO_UP},
     [S_REPOS][E_DOWN] = {S_REPOS,A_GO_DOWN},
     [S_REPOS][E_LEFT] = {S_REPOS,A_GO_LEFT},
@@ -50,17 +64,9 @@ static const transition_t transition_table[NB_STATE][NB_EVENT] =
     [S_REPOS][E_STOP] = {S_DEAD,A_NOP}
 };
 
-static void run(event_t);
-
-struct Player_s{
-    int position_x;
-    int position_y;
-    state_t state;
-};
-
-static Player player;
 
 
+//Fonctions
 extern void Player_init(void){
     player.position_x = 0;
     player.position_y = 0;
@@ -77,7 +83,6 @@ extern Coordinates Player_get_pos(void){
 
 extern void Player_start(void){
   assert(player.state == S_DEAD);
-  printf("Player_start\n");
   player.state = S_REPOS;
 }
 
@@ -86,6 +91,9 @@ extern void Player_stop(void){
 }
 
 extern bool Player_movement(direction_t dir){
+    //Deplacement possible que lors que le joueur est au repos
+    assert(player.state == S_REPOS);
+
     bool moved = false;
     switch(dir){
         case DEP_UP:
@@ -124,14 +132,15 @@ extern bool Player_movement(direction_t dir){
 static void run(event_t event)
 {
     assert(player.state != S_DEAD);
-    printf("run state : %d !\n", player.state);
+
     state_t destination = transition_table[player.state][event].destination;
 
     action_t todo_action = transition_table[player.state][event].action;
 
     switch(todo_action)
     {
-        case A_NOP: break;
+        case A_NOP:
+          break;
         case A_GO_UP :
           player.position_y--;
           break;
@@ -153,6 +162,7 @@ static void run(event_t event)
     {
         player.state =  destination;
     }
+    return;
 }
 
 
