@@ -10,13 +10,12 @@
 
 
 extern Coordinates Trap_get_pos(Trap *trap){
-	Coordinates pos_Tresor;
-	pos_Tresor.x = trap->position_x;
-	pos_Tresor.y = trap->position_y;
-	return pos_Tresor;
+	Coordinates pos_Trap;
+	pos_Trap.x = trap->position_x;
+	pos_Trap.y = trap->position_y;
+	return pos_Trap;
 }
 extern int Trap_get_number(Trap *trap){
-	Coordinates pos_Tresor;
 	int numTrap = trap->numTrap;
 	return numTrap;
 }
