@@ -10,7 +10,6 @@
 static char **game_map;
 extern void Map_init(void){
 
-
     game_map = (char **)malloc(HEIGHT_MAP * sizeof(char *));
       for (int i = 0; i < HEIGHT_MAP; i++) {
           game_map[i] = (char *)malloc(WIDTH_MAP * sizeof(char));
@@ -26,7 +25,7 @@ extern void Map_init(void){
 }
 
 extern void Map_print(void){
-    system("clear");
+    //system("clear");
     grille_print(game_map, WIDTH_MAP, HEIGHT_MAP);
 }
 extern void Map_set_case(Coordinates newPos, Coordinates oldPos, char value){

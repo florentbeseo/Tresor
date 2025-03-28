@@ -15,3 +15,9 @@ extern void Treasure_init(void){
   treasure.position_x = 5;
   treasure.position_y = 5;
 }
+extern Coordinates Treasure_get_pos(void){
+    Coordinates pos_Tresor;
+    pos_Tresor.x = treasure.position_x;
+    pos_Tresor.y = treasure.position_y;
+  return pos_Tresor;
+}

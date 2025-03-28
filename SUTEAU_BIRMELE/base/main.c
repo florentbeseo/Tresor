@@ -5,8 +5,10 @@
 #include "Packages/getch.h"
 #include "Packages/Map.h"
 #include "Packages/Player.h"
+#include "Packages/Treasure.h"
 #include "Packages/main.h"
 
+static char PLAYER_CHAR = 'j';
 
 typedef enum
 {
@@ -16,37 +18,37 @@ typedef enum
     VICTOIRE
 }MAE_Global;
 
-typedef enum
-{
-    D_Droite = 0,
-    D_Gauche,
-    D_Haut,
-    D_Bas
-}MAE_Deplacement;
-
 int main()
 {
     char car ;
     int end = 0;
-    char **test_grille;
-    int pos_joueur_x = 0;
-    int pos_joueur_y = 0;
     MAE_Global GameState = INIT;
-    MAE_Deplacement deplacementState;
-    char PLAYER_CHAR = 'j';
     Coordinates OldPos = {0,0};
+    bool moved = false;
 
     while(!end){
         switch (GameState){
             case INIT:
                 Initialisation();
+                Player_start();
                 GameState = AQUISITION_CLAVIER;
                 break;
             case VERIF_VICTOIRE:
-            GameState = AQUISITION_CLAVIER;
-            break;
+                printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
+                printf("pos tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
+                if (Player_get_pos().x == Treasure_get_pos().x && Player_get_pos().y == Treasure_get_pos().y)
+                {
+                    printf("Vous avez trouvé le trésor !\n");
+                    GameState = VICTOIRE;
+                }
+                else
+                {
+                    GameState = AQUISITION_CLAVIER;
+                }
+                break;
             case AQUISITION_CLAVIER:
                 car = getch();
+                moved = false;
                 //setCase([pos_joueur_x][pos_joueur_y] = ' ';
                 switch(car)
                 {
@@ -54,19 +56,19 @@ int main()
                         end = 1;
                     break;
                     case 'i':
-                        Player_movement(DEP_UP);
+                        moved = Player_movement(DEP_UP);
                     break;
                     case 'k':
-                        Player_movement(DEP_DOWN);
+                        moved = Player_movement(DEP_DOWN);
                     break;
                     case 'j':
-                        Player_movement(DEP_LEFT);
+                        moved = Player_movement(DEP_LEFT);
                     break;
                     case 'l':
-                        Player_movement(DEP_RIGHT);
+                        moved = Player_movement(DEP_RIGHT);
                     break;
                 }
-                if (!end){
+                if (moved){
                       Map_set_case(Player_get_pos(), OldPos, PLAYER_CHAR);
                       Map_print();
                       OldPos = Player_get_pos();
@@ -74,22 +76,26 @@ int main()
                 }
                 break;
             case VICTOIRE:
+                printf("Vous avez gagné !\n");
                 end = 1;
                 break;
             default:
                 break;
         }
     }
-    printf("finnnn\n");
+    printf("Fin du jeu\n");
     return 0;
 }
 
 void Initialisation(void)
 {
-    Player_init();
-
     Map_init();
-    Map_set_case(Player_get_pos(),Player_get_pos(), 'j');
+    Player_init();
+    Treasure_init();
+
+    Map_set_case(Player_get_pos(),Player_get_pos(), PLAYER_CHAR);
+    Map_set_case(Treasure_get_pos(),Treasure_get_pos(), 'T');
+
     Map_print();
 }
 

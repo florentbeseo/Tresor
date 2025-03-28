@@ -11,6 +11,8 @@
 typedef struct Treasure_s Treasure;
 
 extern void Treasure_init(void);
+extern Coordinates Treasure_get_pos(void);
+
 //extern coordinate Treasure get_pos();
 
 #endif //TREASURE_H
