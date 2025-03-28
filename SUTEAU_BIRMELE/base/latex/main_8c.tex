@@ -1,5 +1,10 @@
 \hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
 \label{main_8c}\index{main.c@{main.c}}
+
+
+Module principal du jeu.  
+
+
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
@@ -9,8 +14,7 @@
 {\ttfamily \#include \char`\"{}Packages/\+Player.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Treasure.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/main.\+h\char`\"{}}\newline
-Include dependency graph for main.\+c\+:
-\nopagebreak
+Include dependency graph for main.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -34,6 +38,18 @@ int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 void \mbox{\hyperlink{main_8c_a626ee5dd844d0535a806714658bc37af}{Initialisation}} (void)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Module principal du jeu. 
+
+Ce fichier contient l\textquotesingle{}initialisation du jeu et la gestion de la boucle principale. Il interagit avec les modules Player, Map, et Treasure pour gérer l\textquotesingle{}état du jeu.\hypertarget{main_8c_description}{}\doxysubsection{Description du jeu}\label{main_8c_description}
+Le jeu consiste à déplacer un joueur sur une carte. La carte est représentée par une grille et le joueur peut se déplacer dans différentes directions.\hypertarget{main_8c_modules}{}\doxysubsection{Modules du projet}\label{main_8c_modules}
+
+\begin{DoxyItemize}
+\item Player \+: Gère l\textquotesingle{}état et les actions du joueur.
+\item Map \+: Gère la carte du jeu, y compris l\textquotesingle{}affichage et les modifications des cases.
+\item Treasure \+: Gère le trésor et ses interactions avec le joueur. 
+\end{DoxyItemize}
 
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}} 

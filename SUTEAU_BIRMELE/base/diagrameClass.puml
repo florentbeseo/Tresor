@@ -1,0 +1,37 @@
+@startuml
+class Player {
+    - int position_x
+    - int position_y
+    - state_t state
+    + void Player_init()
+    + void Player_start()
+    + void Player_stop()
+    + bool Player_movement(direction_t dir)
+    + Coordinates Player_get_pos()
+}
+
+class Map {
+    - char **game_map
+    + void Map_init()
+    + void Map_print()
+    + void Map_set_case(Coordinates newPos, Coordinates oldPos, char value)
+}
+
+class Treasure {
+    - int position_x
+    - int position_y
+    + void Treasure_init()
+    + Coordinates Treasure_get_pos()
+}
+
+enum MAE_Global {
+    INIT,
+    AQUISITION_CLAVIER,
+    VERIF_VICTOIRE,
+    VICTOIRE
+}
+
+Player -- Map : "Interagit avec"
+Player -- Treasure : "Vérifie position pour victoire"
+Map -- Treasure : "Place le trésor"
+@enduml

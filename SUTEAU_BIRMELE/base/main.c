@@ -1,3 +1,29 @@
+/**
+* @file main.c
+ * @brief Module principal du jeu.
+ *
+ * Ce fichier contient l'initialisation du jeu et la gestion de la boucle principale.
+ * Il interagit avec les modules Player, Map, et Treasure pour gérer l'état du jeu.
+ *
+ * @section description Description du jeu
+ * Le jeu consiste à déplacer un joueur sur une carte. La carte est représentée par une grille
+ * et le joueur peut se déplacer dans différentes directions.
+ *
+ * @section modules Modules du projet
+ * - Player : Gère l'état et les actions du joueur.
+ * - Map : Gère la carte du jeu, y compris l'affichage et les modifications des cases.
+ * - Treasure : Gère le trésor et ses interactions avec le joueur.
+ */
+
+/**
+ * @mainpage
+ * @brief Module principal du jeu.
+ *
+ * @dotfile diagrameClass.puml
+ */
+
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>

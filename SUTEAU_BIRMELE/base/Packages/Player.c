@@ -1,169 +1,167 @@
-//
-// Created by tanguy on 28/03/25.
-//
+/// @file Player.c
+/// @brief Implémentation du module Player
+/// @author tanguy
+/// @date 28/03/25
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 #include "Player.h"
 
-/**
-*
-*/
+/// @brief Représente les états possibles du joueur.
 typedef enum
 {
-    S_AUCISSE =0,
-    S_REPOS,
-    S_ACTIF,
-    S_DEAD,
-    NB_STATE
-}state_t;
+    S_AUCISSE = 0, ///< État Init
+    S_REPOS,       ///< Joueur au repos
+    S_ACTIF,       ///< Joueur en mouvement
+    S_DEAD,        ///< Joueur mort
+    NB_STATE       ///< Nombre total d'états
+} state_t;
 
+/// @brief Représente les événements pouvant affecter le joueur.
 typedef enum
 {
-    E_UP = 0,
-    E_DOWN,
-    E_LEFT,
-    E_RIGHT,
-    E_STOP,
-    NB_EVENT
-}event_t;
+    E_UP = 0, ///< Déplacement vers le haut
+    E_DOWN,   ///< Déplacement vers le bas
+    E_LEFT,   ///< Déplacement vers la gauche
+    E_RIGHT,  ///< Déplacement vers la droite
+    E_STOP,   ///< Arrêt du joueur
+    NB_EVENT  ///< Nombre total d'événements
+} event_t;
 
+/// @brief Représente les actions possibles pour le joueur.
 typedef enum
 {
-    A_NOP = 0,
-    A_GO_UP,
-    A_GO_DOWN,
-    A_GO_LEFT,
-    A_GO_RIGHT,
-}action_t;
+    A_NOP = 0,   ///< Aucune action
+    A_GO_UP,     ///< Aller vers le haut
+    A_GO_DOWN,   ///< Aller vers le bas
+    A_GO_LEFT,   ///< Aller vers la gauche
+    A_GO_RIGHT   ///< Aller vers la droite
+} action_t;
 
+/// @brief Structure d'une transition d'état.
 typedef struct
 {
-    state_t destination;
-    action_t action;
-}transition_t;
+    state_t destination; ///< État de destination
+    action_t action;     ///< Action à exécuter
+} transition_t;
 
-struct Player_s{
-    int position_x;
-    int position_y;
-    state_t state;
+/// @brief Structure du joueur.
+struct Player_s {
+    int position_x; ///< Position X du joueur
+    int position_y; ///< Position Y du joueur
+    state_t state;  ///< État actuel du joueur
 };
-//Prototype
-static void run(event_t);
 
-//Variables
+/// @brief Prototypage de la fonction interne.
+/// @param event L'événement à traiter
+static void run(event_t event);
+
+/// @brief Instance du joueur.
 static Player player;
+
+/// @brief Table de transition des états.
 static const transition_t transition_table[NB_STATE][NB_EVENT] =
 {
-    //Au repos le joueur peut demmander a se déplacer vers le haut.
-    //Si le deplacement est possible il fait l'action aller vers le haut et se remet au repos.
-    [S_REPOS][E_UP] = {S_REPOS,A_GO_UP},
-    [S_REPOS][E_DOWN] = {S_REPOS,A_GO_DOWN},
-    [S_REPOS][E_LEFT] = {S_REPOS,A_GO_LEFT},
-    [S_REPOS][E_RIGHT] = {S_REPOS,A_GO_RIGHT},
-    [S_REPOS][E_STOP] = {S_DEAD,A_NOP}
+    [S_REPOS][E_UP] = {S_REPOS, A_GO_UP},
+    [S_REPOS][E_DOWN] = {S_REPOS, A_GO_DOWN},
+    [S_REPOS][E_LEFT] = {S_REPOS, A_GO_LEFT},
+    [S_REPOS][E_RIGHT] = {S_REPOS, A_GO_RIGHT},
+    [S_REPOS][E_STOP] = {S_DEAD, A_NOP}
 };
 
-
-
-//Fonctions
-extern void Player_init(void){
+/// @brief Initialise le joueur.
+/// @details Cette fonction met le joueur dans un état initial avec des valeurs par défaut.
+extern void Player_init(void) {
     player.position_x = 0;
     player.position_y = 0;
     player.state = S_DEAD;
-};
+}
 
-extern Coordinates Player_get_pos(void){
+/// @brief Retourne la position actuelle du joueur.
+/// @return La structure contenant les coordonnées du joueur.
+extern Coordinates Player_get_pos(void) {
     Coordinates pos;
     pos.x = player.position_x;
     pos.y = player.position_y;
     return pos;
 }
 
-
-extern void Player_start(void){
-  assert(player.state == S_DEAD);
-  player.state = S_REPOS;
+/// @brief Démarre le joueur en le mettant à l'état REPOS.
+extern void Player_start(void) {
+    assert(player.state == S_DEAD);
+    player.state = S_REPOS;
 }
 
-extern void Player_stop(void){
-  run(E_STOP);
+/// @brief Arrête le joueur et la MaE.
+extern void Player_stop(void) {
+    run(E_STOP);
 }
 
-extern bool Player_movement(direction_t dir){
-    //Deplacement possible que lors que le joueur est au repos
+/// @brief Gère le déplacement du joueur.
+/// @param dir Direction du déplacement.
+/// @return true si le déplacement a été effectué, sinon false.
+extern bool Player_movement(direction_t dir) {
     assert(player.state == S_REPOS);
-
     bool moved = false;
-    switch(dir){
+    switch(dir) {
         case DEP_UP:
-            if(!(player.position_y <= 0)){
+            if (!(player.position_y <= 0)) {
                 run(E_UP);
                 moved = true;
             }
-        break;
+            break;
         case DEP_DOWN:
-            if(!(player.position_y >= HEIGHT_MAP-1)){
+            if (!(player.position_y >= HEIGHT_MAP - 1)) {
                 run(E_DOWN);
                 moved = true;
             }
-        break;
+            break;
         case DEP_LEFT:
-            if(!(player.position_x <= 0)){
+            if (!(player.position_x <= 0)) {
                 run(E_LEFT);
                 moved = true;
             }
-        break;
+            break;
         case DEP_RIGHT:
-            if(!(player.position_x >= WIDTH_MAP-1)){
+            if (!(player.position_x >= WIDTH_MAP - 1)) {
                 run(E_RIGHT);
                 moved = true;
             }
-        break;
+            break;
         default:
             assert(0);
-        break;
+            break;
     }
     return moved;
 }
 
-
-
-static void run(event_t event)
-{
+/// @brief Exécute une transition d'état en fonction de l'événement reçu.
+/// @param event L'événement à traiter.
+static void run(event_t event) {
     assert(player.state != S_DEAD);
-
     state_t destination = transition_table[player.state][event].destination;
-
     action_t todo_action = transition_table[player.state][event].action;
-
-    switch(todo_action)
-    {
+    switch(todo_action) {
         case A_NOP:
-          break;
-        case A_GO_UP :
-          player.position_y--;
-          break;
-        case A_GO_DOWN :
-          player.position_y++;
-          break;
-        case A_GO_LEFT :
-          player.position_x--;
-          break;
-        case A_GO_RIGHT :
-          player.position_x++;
-          break;
+            break;
+        case A_GO_UP:
+            player.position_y--;
+            break;
+        case A_GO_DOWN:
+            player.position_y++;
+            break;
+        case A_GO_LEFT:
+            player.position_x--;
+            break;
+        case A_GO_RIGHT:
+            player.position_x++;
+            break;
         default:
-          assert(0);
-          break;
+            assert(0);
+            break;
     }
-
-    if(destination != S_AUCISSE)
-    {
-        player.state =  destination;
+    if (destination != S_AUCISSE) {
+        player.state = destination;
     }
-    return;
 }
-
-
-

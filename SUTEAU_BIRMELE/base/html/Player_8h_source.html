@@ -69,36 +69,32 @@ $(function() {
 <div class="title">Player.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Player_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="Player_8h.html#a47e6f8d93a79a2576363b43294ea2090">    1</a></span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by tanguy on 28/03/25.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef PLAYER_V2_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define PLAYER_V2_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;assert.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<a href="Player_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="Player_8h.html#a47e6f8d93a79a2576363b43294ea2090">    1</a></span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef PLAYER_V2_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define PLAYER_V2_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;assert.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structPlayer__s.html">Player_s</a> <a class="code" href="structPlayer__s.html">Player</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#a33678c1d8f8a19d9e4ab8b56f06f6569">Player_start</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#a0e062e6366b868d8212f7e93908a1cb6">Player_stop</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="Player_8h.html#a991b6a13858282a8a37c18a2efc9bcdf">Player_movement</a>(<a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a> dir);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <a class="code" href="structCoordinates.html">Coordinates</a> <a class="code" href="Player_8h.html#afb0255fa672477a10429a61a93f121ba">Player_get_pos</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PLAYER_V2_H</span></div>
-<div class="ttc" id="aPlayer_8h_html_a0e062e6366b868d8212f7e93908a1cb6"><div class="ttname"><a href="Player_8h.html#a0e062e6366b868d8212f7e93908a1cb6">Player_stop</a></div><div class="ttdeci">void Player_stop(void)</div><div class="ttdef"><b>Definition:</b> Player.c:89</div></div>
-<div class="ttc" id="aPlayer_8h_html_a33678c1d8f8a19d9e4ab8b56f06f6569"><div class="ttname"><a href="Player_8h.html#a33678c1d8f8a19d9e4ab8b56f06f6569">Player_start</a></div><div class="ttdeci">void Player_start(void)</div><div class="ttdef"><b>Definition:</b> Player.c:84</div></div>
-<div class="ttc" id="aPlayer_8h_html_a991b6a13858282a8a37c18a2efc9bcdf"><div class="ttname"><a href="Player_8h.html#a991b6a13858282a8a37c18a2efc9bcdf">Player_movement</a></div><div class="ttdeci">bool Player_movement(direction_t dir)</div><div class="ttdef"><b>Definition:</b> Player.c:93</div></div>
-<div class="ttc" id="aPlayer_8h_html_afb0255fa672477a10429a61a93f121ba"><div class="ttname"><a href="Player_8h.html#afb0255fa672477a10429a61a93f121ba">Player_get_pos</a></div><div class="ttdeci">Coordinates Player_get_pos(void)</div><div class="ttdef"><b>Definition:</b> Player.c:76</div></div>
-<div class="ttc" id="aPlayer_8h_html_afdefe502f9fcd570d8d08518d4849047"><div class="ttname"><a href="Player_8h.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a></div><div class="ttdeci">void Player_init(void)</div><div class="ttdef"><b>Definition:</b> Player.c:70</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structPlayer__s.html">Player_s</a> <a class="code" href="structPlayer__s.html">Player</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#a33678c1d8f8a19d9e4ab8b56f06f6569">Player_start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Player_8h.html#a0e062e6366b868d8212f7e93908a1cb6">Player_stop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="Player_8h.html#a991b6a13858282a8a37c18a2efc9bcdf">Player_movement</a>(<a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a> dir);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <a class="code" href="structCoordinates.html">Coordinates</a> <a class="code" href="Player_8h.html#afb0255fa672477a10429a61a93f121ba">Player_get_pos</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PLAYER_V2_H</span></div>
+<div class="ttc" id="aPlayer_8h_html_a0e062e6366b868d8212f7e93908a1cb6"><div class="ttname"><a href="Player_8h.html#a0e062e6366b868d8212f7e93908a1cb6">Player_stop</a></div><div class="ttdeci">void Player_stop(void)</div><div class="ttdoc">Arrête le joueur et la MaE.</div><div class="ttdef"><b>Definition:</b> Player.c:97</div></div>
+<div class="ttc" id="aPlayer_8h_html_a33678c1d8f8a19d9e4ab8b56f06f6569"><div class="ttname"><a href="Player_8h.html#a33678c1d8f8a19d9e4ab8b56f06f6569">Player_start</a></div><div class="ttdeci">void Player_start(void)</div><div class="ttdoc">Démarre le joueur en le mettant à l'état REPOS.</div><div class="ttdef"><b>Definition:</b> Player.c:91</div></div>
+<div class="ttc" id="aPlayer_8h_html_a991b6a13858282a8a37c18a2efc9bcdf"><div class="ttname"><a href="Player_8h.html#a991b6a13858282a8a37c18a2efc9bcdf">Player_movement</a></div><div class="ttdeci">bool Player_movement(direction_t dir)</div><div class="ttdoc">Gère le déplacement du joueur.</div><div class="ttdef"><b>Definition:</b> Player.c:104</div></div>
+<div class="ttc" id="aPlayer_8h_html_afb0255fa672477a10429a61a93f121ba"><div class="ttname"><a href="Player_8h.html#afb0255fa672477a10429a61a93f121ba">Player_get_pos</a></div><div class="ttdeci">Coordinates Player_get_pos(void)</div><div class="ttdoc">Retourne la position actuelle du joueur.</div><div class="ttdef"><b>Definition:</b> Player.c:83</div></div>
+<div class="ttc" id="aPlayer_8h_html_afdefe502f9fcd570d8d08518d4849047"><div class="ttname"><a href="Player_8h.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a></div><div class="ttdeci">void Player_init(void)</div><div class="ttdoc">Initialise le joueur.</div><div class="ttdef"><b>Definition:</b> Player.c:75</div></div>
 <div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div></div>
 <div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6b"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a></div><div class="ttdeci">direction_t</div><div class="ttdef"><b>Definition:</b> main.h:17</div></div>
 <div class="ttc" id="astructCoordinates_html"><div class="ttname"><a href="structCoordinates.html">Coordinates</a></div><div class="ttdef"><b>Definition:</b> main.h:12</div></div>
-<div class="ttc" id="astructPlayer__s_html"><div class="ttname"><a href="structPlayer__s.html">Player_s</a></div><div class="ttdef"><b>Definition:</b> Player.c:46</div></div>
+<div class="ttc" id="astructPlayer__s_html"><div class="ttname"><a href="structPlayer__s.html">Player_s</a></div><div class="ttdoc">Structure du joueur.</div><div class="ttdef"><b>Definition:</b> Player.c:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

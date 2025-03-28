@@ -1,35 +1,40 @@
 \hypertarget{Player_8c}{}\doxysection{Packages/\+Player.c File Reference}
 \label{Player_8c}\index{Packages/Player.c@{Packages/Player.c}}
+
+
+Implémentation du module Player.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}Player.\+h\char`\"{}}\newline
-Include dependency graph for Player.\+c\+:
-\nopagebreak
+Include dependency graph for Player.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=326pt]{Player_8c__incl}
+\includegraphics[width=313pt]{Player_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structtransition__t}{transition\+\_\+t}}
-\item 
+\begin{DoxyCompactList}\small\item\em Structure d\textquotesingle{}une transition d\textquotesingle{}état. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structPlayer__s}{Player\+\_\+s}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t}} \{ \newline
-\mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}{S\+\_\+\+AUCISSE}} =0
+\mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}{S\+\_\+\+AUCISSE}} = 0
 , \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}{S\+\_\+\+REPOS}}
 , \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}{S\+\_\+\+ACTIF}}
 , \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}{S\+\_\+\+DEAD}}
 , \newline
 \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}{NB\+\_\+\+STATE}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em Représente les états possibles du joueur. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}} \{ \newline
 \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}{E\+\_\+\+UP}} = 0
 , \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}{E\+\_\+\+DOWN}}
@@ -39,7 +44,7 @@ enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}
 \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}{E\+\_\+\+STOP}}
 , \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}{NB\+\_\+\+EVENT}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em Représente les événements pouvant affecter le joueur. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}} \{ \newline
 \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}{A\+\_\+\+NOP}} = 0
 , \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}{A\+\_\+\+GO\+\_\+\+UP}}
@@ -48,20 +53,31 @@ enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t
 , \newline
 \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}{A\+\_\+\+GO\+\_\+\+RIGHT}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Représente les actions possibles pour le joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Player_8c_afdefe502f9fcd570d8d08518d4849047}{Player\+\_\+init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise le joueur. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structCoordinates}{Coordinates}} \mbox{\hyperlink{Player_8c_afb0255fa672477a10429a61a93f121ba}{Player\+\_\+get\+\_\+pos}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Retourne la position actuelle du joueur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}{Player\+\_\+start}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Démarre le joueur en le mettant à l\textquotesingle{}état REPOS. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}{Player\+\_\+stop}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Arrête le joueur et la MaE. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}{Player\+\_\+movement}} (\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}} dir)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gère le déplacement du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implémentation du module Player. 
+
+\begin{DoxyAuthor}{Author}
+tanguy 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28/03/25 
+\end{DoxyDate}
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -71,25 +87,29 @@ bool \mbox{\hyperlink{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}{Player\+\_\+m
 \doxysubsubsection{\texorpdfstring{action\_t}{action\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}}}
 
+
+
+Représente les actions possibles pour le joueur. 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_NOP@{A\_NOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_NOP@{A\_NOP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}} 
-A\+\_\+\+NOP&\\
+A\+\_\+\+NOP&Aucune action. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_UP@{A\_GO\_UP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_UP@{A\_GO\_UP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}} 
-A\+\_\+\+GO\+\_\+\+UP&\\
+A\+\_\+\+GO\+\_\+\+UP&Aller vers le haut. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_DOWN@{A\_GO\_DOWN}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_DOWN@{A\_GO\_DOWN}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}} 
-A\+\_\+\+GO\+\_\+\+DOWN&\\
+A\+\_\+\+GO\+\_\+\+DOWN&Aller vers le bas. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_LEFT@{A\_GO\_LEFT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_LEFT@{A\_GO\_LEFT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}} 
-A\+\_\+\+GO\+\_\+\+LEFT&\\
+A\+\_\+\+GO\+\_\+\+LEFT&Aller vers la gauche. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_RIGHT@{A\_GO\_RIGHT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_RIGHT@{A\_GO\_RIGHT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}} 
-A\+\_\+\+GO\+\_\+\+RIGHT&\\
+A\+\_\+\+GO\+\_\+\+RIGHT&Aller vers la droite. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -99,29 +119,33 @@ A\+\_\+\+GO\+\_\+\+RIGHT&\\
 \doxysubsubsection{\texorpdfstring{event\_t}{event\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}}}
 
+
+
+Représente les événements pouvant affecter le joueur. 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\_UP@{E\_UP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_UP@{E\_UP}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901}} 
-E\+\_\+\+UP&\\
+E\+\_\+\+UP&Déplacement vers le haut. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DOWN@{E\_DOWN}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_DOWN@{E\_DOWN}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970}} 
-E\+\_\+\+DOWN&\\
+E\+\_\+\+DOWN&Déplacement vers le bas. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\_LEFT@{E\_LEFT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_LEFT@{E\_LEFT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971}} 
-E\+\_\+\+LEFT&\\
+E\+\_\+\+LEFT&Déplacement vers la gauche. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\_RIGHT@{E\_RIGHT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_RIGHT@{E\_RIGHT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5}} 
-E\+\_\+\+RIGHT&\\
+E\+\_\+\+RIGHT&Déplacement vers la droite. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\_STOP@{E\_STOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!E\_STOP@{E\_STOP}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac}} 
-E\+\_\+\+STOP&\\
+E\+\_\+\+STOP&Arrêt du joueur. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NB\_EVENT@{NB\_EVENT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!NB\_EVENT@{NB\_EVENT}}}\mbox{\Hypertarget{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}\label{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13}} 
-NB\+\_\+\+EVENT&\\
+NB\+\_\+\+EVENT&Nombre total d\textquotesingle{}événements. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -131,25 +155,29 @@ NB\+\_\+\+EVENT&\\
 \doxysubsubsection{\texorpdfstring{state\_t}{state\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t}}}
 
+
+
+Représente les états possibles du joueur. 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\_AUCISSE@{S\_AUCISSE}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_AUCISSE@{S\_AUCISSE}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747}} 
-S\+\_\+\+AUCISSE&\\
+S\+\_\+\+AUCISSE&État Init. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\_REPOS@{S\_REPOS}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_REPOS@{S\_REPOS}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd}} 
-S\+\_\+\+REPOS&\\
+S\+\_\+\+REPOS&Joueur au repos. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\_ACTIF@{S\_ACTIF}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_ACTIF@{S\_ACTIF}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b}} 
-S\+\_\+\+ACTIF&\\
+S\+\_\+\+ACTIF&Joueur en mouvement. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\_DEAD@{S\_DEAD}!Player.c@{Player.c}}\index{Player.c@{Player.c}!S\_DEAD@{S\_DEAD}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e}} 
-S\+\_\+\+DEAD&\\
+S\+\_\+\+DEAD&Joueur mort. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NB\_STATE@{NB\_STATE}!Player.c@{Player.c}}\index{Player.c@{Player.c}!NB\_STATE@{NB\_STATE}}}\mbox{\Hypertarget{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}\label{Player_8c_aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379}} 
-NB\+\_\+\+STATE&\\
+NB\+\_\+\+STATE&Nombre total d\textquotesingle{}états. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -162,27 +190,58 @@ NB\+\_\+\+STATE&\\
 \doxysubsubsection{\texorpdfstring{Player\_get\_pos()}{Player\_get\_pos()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structCoordinates}{Coordinates}} Player\+\_\+get\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Retourne la position actuelle du joueur. 
+
+\begin{DoxyReturn}{Returns}
+La structure contenant les coordonnées du joueur. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{Player_8c_afdefe502f9fcd570d8d08518d4849047}\label{Player_8c_afdefe502f9fcd570d8d08518d4849047}} 
 \index{Player.c@{Player.c}!Player\_init@{Player\_init}}
 \index{Player\_init@{Player\_init}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_init()}{Player\_init()}}
 {\footnotesize\ttfamily void Player\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}\label{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}} 
+
+
+Initialise le joueur. 
+
+Cette fonction met le joueur dans un état initial avec des valeurs par défaut. \mbox{\Hypertarget{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}\label{Player_8c_a991b6a13858282a8a37c18a2efc9bcdf}} 
 \index{Player.c@{Player.c}!Player\_movement@{Player\_movement}}
 \index{Player\_movement@{Player\_movement}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_movement()}{Player\_movement()}}
 {\footnotesize\ttfamily bool Player\+\_\+movement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}}}]{dir }\end{DoxyParamCaption})}
 
+
+
+Gère le déplacement du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & Direction du déplacement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si le déplacement a été effectué, sinon false. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}\label{Player_8c_a33678c1d8f8a19d9e4ab8b56f06f6569}} 
 \index{Player.c@{Player.c}!Player\_start@{Player\_start}}
 \index{Player\_start@{Player\_start}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_start()}{Player\_start()}}
 {\footnotesize\ttfamily void Player\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Démarre le joueur en le mettant à l\textquotesingle{}état REPOS. 
+
 \mbox{\Hypertarget{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}\label{Player_8c_a0e062e6366b868d8212f7e93908a1cb6}} 
 \index{Player.c@{Player.c}!Player\_stop@{Player\_stop}}
 \index{Player\_stop@{Player\_stop}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_stop()}{Player\_stop()}}
 {\footnotesize\ttfamily void Player\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Arrête le joueur et la MaE. 
 

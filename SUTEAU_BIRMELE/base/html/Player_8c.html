@@ -73,34 +73,40 @@ $(function() {
 <div class="title">Player.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implémentation du module Player.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Player_8h_source.html">Player.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Player.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="Player_8c__incl.png" border="0" usemap="#aPackages_2Player_8c" alt=""/></div>
 <map name="aPackages_2Player_8c" id="aPackages_2Player_8c">
-<area shape="rect" title=" " alt="" coords="41,5,178,32"/>
+<area shape="rect" title="Implémentation du module Player." alt="" coords="78,5,215,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" title=" " alt="" coords="61,155,144,181"/>
-<area shape="rect" href="Player_8h.html" title=" " alt="" coords="159,80,233,107"/>
-<area shape="rect" href="main_8h.html" title=" " alt="" coords="168,155,235,181"/>
-<area shape="rect" title=" " alt="" coords="259,155,333,181"/>
+<area shape="rect" title=" " alt="" coords="44,155,127,181"/>
+<area shape="rect" title=" " alt="" coords="241,155,316,181"/>
+<area shape="rect" href="Player_8h.html" title="Définition du module Player." alt="" coords="147,80,221,107"/>
+<area shape="rect" href="main_8h.html" title=" " alt="" coords="151,155,217,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtransition__t.html">transition_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure d'une transition d'état.  <a href="structtransition__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPlayer__s.html">Player_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure du joueur.  <a href="structPlayer__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:aa0aafed44fec19806d8f9ad834be1248"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a> { <br />
-&#160;&#160;<a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747">S_AUCISSE</a> =0
+&#160;&#160;<a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747">S_AUCISSE</a> = 0
 , <a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd">S_REPOS</a>
 , <a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b">S_ACTIF</a>
 , <a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e">S_DEAD</a>
@@ -108,6 +114,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379">NB_STATE</a>
 <br />
  }</td></tr>
+<tr class="memdesc:aa0aafed44fec19806d8f9ad834be1248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente les états possibles du joueur.  <a href="Player_8c.html#aa0aafed44fec19806d8f9ad834be1248">More...</a><br /></td></tr>
 <tr class="separator:aa0aafed44fec19806d8f9ad834be1248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fb9b58e4e5f14f40af8b4a1425841f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8">event_t</a> { <br />
 &#160;&#160;<a class="el" href="Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901">E_UP</a> = 0
@@ -119,6 +126,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13">NB_EVENT</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a2fb9b58e4e5f14f40af8b4a1425841f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente les événements pouvant affecter le joueur.  <a href="Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8">More...</a><br /></td></tr>
 <tr class="separator:a2fb9b58e4e5f14f40af8b4a1425841f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec2532b33d2d66f09e5b30ed3ded35ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">action_t</a> { <br />
 &#160;&#160;<a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462">A_NOP</a> = 0
@@ -129,22 +137,32 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5">A_GO_RIGHT</a>
 <br />
  }</td></tr>
+<tr class="memdesc:aec2532b33d2d66f09e5b30ed3ded35ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente les actions possibles pour le joueur.  <a href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">More...</a><br /></td></tr>
 <tr class="separator:aec2532b33d2d66f09e5b30ed3ded35ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afdefe502f9fcd570d8d08518d4849047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a> (void)</td></tr>
+<tr class="memdesc:afdefe502f9fcd570d8d08518d4849047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le joueur.  <a href="Player_8c.html#afdefe502f9fcd570d8d08518d4849047">More...</a><br /></td></tr>
 <tr class="separator:afdefe502f9fcd570d8d08518d4849047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0255fa672477a10429a61a93f121ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCoordinates.html">Coordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#afb0255fa672477a10429a61a93f121ba">Player_get_pos</a> (void)</td></tr>
+<tr class="memdesc:afb0255fa672477a10429a61a93f121ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position actuelle du joueur.  <a href="Player_8c.html#afb0255fa672477a10429a61a93f121ba">More...</a><br /></td></tr>
 <tr class="separator:afb0255fa672477a10429a61a93f121ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33678c1d8f8a19d9e4ab8b56f06f6569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#a33678c1d8f8a19d9e4ab8b56f06f6569">Player_start</a> (void)</td></tr>
+<tr class="memdesc:a33678c1d8f8a19d9e4ab8b56f06f6569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarre le joueur en le mettant à l'état REPOS.  <a href="Player_8c.html#a33678c1d8f8a19d9e4ab8b56f06f6569">More...</a><br /></td></tr>
 <tr class="separator:a33678c1d8f8a19d9e4ab8b56f06f6569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e062e6366b868d8212f7e93908a1cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#a0e062e6366b868d8212f7e93908a1cb6">Player_stop</a> (void)</td></tr>
+<tr class="memdesc:a0e062e6366b868d8212f7e93908a1cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrête le joueur et la MaE.  <a href="Player_8c.html#a0e062e6366b868d8212f7e93908a1cb6">More...</a><br /></td></tr>
 <tr class="separator:a0e062e6366b868d8212f7e93908a1cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a991b6a13858282a8a37c18a2efc9bcdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#a991b6a13858282a8a37c18a2efc9bcdf">Player_movement</a> (<a class="el" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a> dir)</td></tr>
+<tr class="memdesc:a991b6a13858282a8a37c18a2efc9bcdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le déplacement du joueur.  <a href="Player_8c.html#a991b6a13858282a8a37c18a2efc9bcdf">More...</a><br /></td></tr>
 <tr class="separator:a991b6a13858282a8a37c18a2efc9bcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implémentation du module Player. </p>
+<dl class="section author"><dt>Author</dt><dd>tanguy </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>28/03/25 </dd></dl>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="aec2532b33d2d66f09e5b30ed3ded35ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec2532b33d2d66f09e5b30ed3ded35ec">&#9670;&nbsp;</a></span>action_t</h2>
 
@@ -156,12 +174,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Représente les actions possibles pour le joueur. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462"></a>A_NOP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c"></a>A_GO_UP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2"></a>A_GO_DOWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab"></a>A_GO_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5"></a>A_GO_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462"></a>A_NOP&#160;</td><td class="fielddoc"><p>Aucune action. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c"></a>A_GO_UP&#160;</td><td class="fielddoc"><p>Aller vers le haut. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2"></a>A_GO_DOWN&#160;</td><td class="fielddoc"><p>Aller vers le bas. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab"></a>A_GO_LEFT&#160;</td><td class="fielddoc"><p>Aller vers la gauche. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5"></a>A_GO_RIGHT&#160;</td><td class="fielddoc"><p>Aller vers la droite. </p>
+</td></tr>
 </table>
 
 </div>
@@ -177,13 +202,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Représente les événements pouvant affecter le joueur. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901"></a>E_UP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970"></a>E_DOWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971"></a>E_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5"></a>E_RIGHT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac"></a>E_STOP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13"></a>NB_EVENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901"></a>E_UP&#160;</td><td class="fielddoc"><p>Déplacement vers le haut. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970"></a>E_DOWN&#160;</td><td class="fielddoc"><p>Déplacement vers le bas. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971"></a>E_LEFT&#160;</td><td class="fielddoc"><p>Déplacement vers la gauche. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5"></a>E_RIGHT&#160;</td><td class="fielddoc"><p>Déplacement vers la droite. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac"></a>E_STOP&#160;</td><td class="fielddoc"><p>Arrêt du joueur. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb9b58e4e5f14f40af8b4a1425841f8a7e59150b6fe58dbcb4975dc589380e13"></a>NB_EVENT&#160;</td><td class="fielddoc"><p>Nombre total d'événements. </p>
+</td></tr>
 </table>
 
 </div>
@@ -199,12 +232,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Représente les états possibles du joueur. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747"></a>S_AUCISSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd"></a>S_REPOS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b"></a>S_ACTIF&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e"></a>S_DEAD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379"></a>NB_STATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a6a51adfd7e9d1d6f55641fd1534bd747"></a>S_AUCISSE&#160;</td><td class="fielddoc"><p>État Init. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a38fe1d379819a5bc4f30cac45246f0dd"></a>S_REPOS&#160;</td><td class="fielddoc"><p>Joueur au repos. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248af44b149df5ee40650057d5d7ebac546b"></a>S_ACTIF&#160;</td><td class="fielddoc"><p>Joueur en mouvement. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a841cbf84737eafd7d4ffe2b906b2d14e"></a>S_DEAD&#160;</td><td class="fielddoc"><p>Joueur mort. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a805e87080e289908fb68358895d16379"></a>NB_STATE&#160;</td><td class="fielddoc"><p>Nombre total d'états. </p>
+</td></tr>
 </table>
 
 </div>
@@ -226,6 +266,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retourne la position actuelle du joueur. </p>
+<dl class="section return"><dt>Returns</dt><dd>La structure contenant les coordonnées du joueur. </dd></dl>
+
 </div>
 </div>
 <a id="afdefe502f9fcd570d8d08518d4849047"></a>
@@ -243,6 +286,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise le joueur. </p>
+<p>Cette fonction met le joueur dans un état initial avec des valeurs par défaut. </p>
 
 </div>
 </div>
@@ -262,6 +308,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gère le déplacement du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>Direction du déplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si le déplacement a été effectué, sinon false. </dd></dl>
+
 </div>
 </div>
 <a id="a33678c1d8f8a19d9e4ab8b56f06f6569"></a>
@@ -280,6 +335,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Démarre le joueur en le mettant à l'état REPOS. </p>
+
 </div>
 </div>
 <a id="a0e062e6366b868d8212f7e93908a1cb6"></a>
@@ -297,6 +354,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Arrête le joueur et la MaE. </p>
 
 </div>
 </div>

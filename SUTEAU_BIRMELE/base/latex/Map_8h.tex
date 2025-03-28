@@ -1,16 +1,19 @@
 \hypertarget{Map_8h}{}\doxysection{Packages/\+Map.h File Reference}
 \label{Map_8h}\index{Packages/Map.h@{Packages/Map.h}}
+
+
+Définition du module de gestion de la carte de jeu.  
+
+
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
-Include dependency graph for Map.\+h\+:
-\nopagebreak
+Include dependency graph for Map.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=175pt]{Map_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,11 +24,22 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Map_8h_adfaa37ce9e9e74782f4a34dff90baef9}{Map\+\_\+init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise la carte du jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Map_8h_a4d3c4f682ef9577ef68a03ca5ad64caa}{Map\+\_\+print}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la carte du jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}{Map\+\_\+set\+\_\+case}} (\mbox{\hyperlink{structCoordinates}{Coordinates}} new\+Pos, \mbox{\hyperlink{structCoordinates}{Coordinates}} old\+Pos, char value)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Modifie une case de la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Définition du module de gestion de la carte de jeu. 
+
+\begin{DoxyAuthor}{Author}
+Florent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+26/03/25 
+\end{DoxyDate}
 
 
 \doxysubsection{Function Documentation}
@@ -35,15 +49,37 @@ void \mbox{\hyperlink{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}{Map\+\_\+set\+\_
 \doxysubsubsection{\texorpdfstring{Map\_init()}{Map\_init()}}
 {\footnotesize\ttfamily void Map\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Map_8h_a4d3c4f682ef9577ef68a03ca5ad64caa}\label{Map_8h_a4d3c4f682ef9577ef68a03ca5ad64caa}} 
+
+
+Initialise la carte du jeu. 
+
+Alloue dynamiquement une grille de jeu et initialise toutes les cases à \textquotesingle{} \textquotesingle{}. \mbox{\Hypertarget{Map_8h_a4d3c4f682ef9577ef68a03ca5ad64caa}\label{Map_8h_a4d3c4f682ef9577ef68a03ca5ad64caa}} 
 \index{Map.h@{Map.h}!Map\_print@{Map\_print}}
 \index{Map\_print@{Map\_print}!Map.h@{Map.h}}
 \doxysubsubsection{\texorpdfstring{Map\_print()}{Map\_print()}}
 {\footnotesize\ttfamily void Map\+\_\+print (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}\label{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}} 
+
+
+Affiche la carte du jeu. 
+
+Utilise la fonction {\ttfamily grille\+\_\+print} pour afficher la grille sur la console. \mbox{\Hypertarget{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}\label{Map_8h_a6ae015ad3c7a73b84baf6fc735202663}} 
 \index{Map.h@{Map.h}!Map\_set\_case@{Map\_set\_case}}
 \index{Map\_set\_case@{Map\_set\_case}!Map.h@{Map.h}}
 \doxysubsubsection{\texorpdfstring{Map\_set\_case()}{Map\_set\_case()}}
 {\footnotesize\ttfamily void Map\+\_\+set\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCoordinates}{Coordinates}}}]{new\+Pos,  }\item[{\mbox{\hyperlink{structCoordinates}{Coordinates}}}]{old\+Pos,  }\item[{char}]{value }\end{DoxyParamCaption})}
 
+
+
+Modifie une case de la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Pos} & Coordonnées de la nouvelle position. \\
+\hline
+{\em old\+Pos} & Coordonnées de l\textquotesingle{}ancienne position. \\
+\hline
+{\em value} & Caractère à placer à la nouvelle position.\\
+\hline
+\end{DoxyParams}
+La case de l\textquotesingle{}ancienne position est vidée (\textquotesingle{} \textquotesingle{}) et la nouvelle position est mise à jour. 
