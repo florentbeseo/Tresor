@@ -34,6 +34,8 @@
 #include "Packages/Treasure.h"
 #include "Packages/Trap.h"
 #include "Packages/main.h"
+#include <assert.h>
+
 
 #define NB_TRAP_DEFAULT 5
 #define NB_TRAP_MAX 20
@@ -52,6 +54,8 @@ typedef enum
     VICTOIRE
 }MAE_Global;
 
+void reforme_trap_tab(int nb_trap_sup);
+
 static int nb_trap = 0;
 
 int main()
@@ -67,6 +71,10 @@ int main()
         switch (GameState){
             case INIT:
                 Initialisation();
+                for (int testTrap = 0; testTrap < nb_trap; testTrap++){
+                  printf("Trap num %d\n", testTrap);
+                  assert(trap_tab[testTrap] != NULL);
+                }
                 Player_start();
                 GameState = AQUISITION_CLAVIER;
                 break;
@@ -74,6 +82,13 @@ int main()
 #ifdef AFFICHER_TRESOR
               	printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
                 printf("pos tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
+#endif
+#ifdef AFFICHER_PIEGES
+                for (int i = 0; i < nb_trap; i++)
+                {
+                    if (trap_tab[i] != NULL)
+                      	printf("tab [%d] / piege num %d : x : %d /y: %d\n", i, Trap_get_number(trap_tab[i]), Trap_get_pos(trap_tab[i]).x, Trap_get_pos(trap_tab[i]).y);
+                }
 #endif
                 if (Player_get_pos().x == Treasure_get_pos().x && Player_get_pos().y == Treasure_get_pos().y)
                 {
@@ -86,7 +101,9 @@ int main()
                     {
                         if (Player_get_pos().x == Trap_get_pos(trap_tab[i]).x && Player_get_pos().y == Trap_get_pos(trap_tab[i]).y)
                         {
-                            Trap_delete(trap_tab[i]);
+
+                            reforme_trap_tab(i);
+                            Trap_delete(trap_tab[nb_trap-1]);
                             nb_trap--;
                             printf("Vous êtes tombé dans un piège !\n");
 
@@ -98,7 +115,6 @@ int main()
             case AQUISITION_CLAVIER:
                 car = getch();
                 moved = false;
-                //setCase([pos_joueur_x][pos_joueur_y] = ' ';
                 switch(car)
                 {
                     case 'q':
@@ -142,6 +158,17 @@ int main()
     return 0;
 }
 
+void reforme_trap_tab(int idx_nb_trap_sup)
+{
+  	Trap *temp = trap_tab[idx_nb_trap_sup];
+    printf("reforme tab : \nnb_trap : %d\n", nb_trap);
+    for (int i = idx_nb_trap_sup; i < nb_trap-1; i++)
+    {
+        printf("tab[%d] = tab[%d]\n", i, i+1);
+        trap_tab[i] = trap_tab[i + 1];
+    }
+    trap_tab[nb_trap-1] = temp;
+}
 void Initialisation(void)
 {
     bool Treasure_OK = false;
@@ -182,6 +209,7 @@ void Initialisation(void)
     }
 
     Map_set_case(Player_get_pos(),Player_get_pos(), PLAYER_CHAR);
+    assert(Map_get_case(Player_get_pos()) == PLAYER_CHAR);
 
 #ifdef AFFICHER_TRESOR
     Map_set_case(Treasure_get_pos(),Treasure_get_pos(), TREASURE_CHAR);

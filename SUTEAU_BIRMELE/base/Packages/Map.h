@@ -11,5 +11,6 @@
 extern void Map_init(void);
 extern void Map_print(void);
 extern void Map_set_case(Coordinates newPos, Coordinates oldPos, char value);
+extern char Map_get_case(Coordinates pos);
 
 #endif // MAP_H

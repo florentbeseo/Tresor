@@ -45,6 +45,9 @@ extern void Map_set_case(Coordinates newPos, Coordinates oldPos, char value) {
     game_map[newPos.y][newPos.x] = value;
 }
 
+extern char Map_get_case(Coordinates pos) {
+    return game_map[pos.y][pos.x];
+}
 /*
 /// @brief Libère la mémoire allouée pour la carte.
 /// @details Parcourt la carte et libère chaque ligne, puis le tableau principal.
