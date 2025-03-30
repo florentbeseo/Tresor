@@ -51,6 +51,7 @@ struct Player_s {
     int position_x; ///< Position X du joueur
     int position_y; ///< Position Y du joueur
     state_t state;  ///< État actuel du joueur
+    int HP;
 };
 
 /// @brief Prototypage de la fonction interne.
@@ -75,7 +76,30 @@ static const transition_t transition_table[NB_STATE][NB_EVENT] =
 extern void Player_init(void) {
     player.position_x = 0;
     player.position_y = 0;
+    player.HP = HP_DEFAULT;
     player.state = S_DEAD;
+}
+
+/// @brief Definit le nombre de HP du joueur
+extern void Player_setHP(int *HP){
+  player.HP = *HP;
+}
+
+/// @brief Retourne les nonbre de HP du joueur
+/// @return Un entier correspondant au HP du joueur.
+extern int Player_getHP(void){
+  return player.HP;
+}
+
+/// @brief Reduit la vie du joueur de 1 HP.
+/// @details Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false.
+extern bool Player_hit(void){
+ assert(player.HP > 0);
+ player.HP--;
+ if (player.HP == 0) {
+   return true;
+ }
+ return false;
 }
 
 /// @brief Retourne la position actuelle du joueur.

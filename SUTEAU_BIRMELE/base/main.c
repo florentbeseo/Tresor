@@ -53,7 +53,8 @@ typedef enum
     INIT = 0, ///< État d'initialisation.
     AQUISITION_CLAVIER, ///< État d'acquisition clavier.
     VERIF_VICTOIRE, ///< État de vérification de la victoire.
-    VICTOIRE ///< État de victoire.
+    VICTOIRE, ///< État de victoire.
+    LOOSE ///< Etat de défaite du joueur.
 } MAE_Global;
 
 /// @brief Réforme le tableau des pièges.
@@ -73,6 +74,7 @@ int main()
     bool trap_OK = false;
     char car;
     int end = 0;
+    int tmpDead = 0;
     MAE_Global GameState = INIT;
     Coordinates OldPos = {0, 0};
     bool moved = false;
@@ -126,9 +128,19 @@ int main()
                             Trap_delete(trap_tab[nb_trap - 1]);
                             nb_trap--;
                             printf("Vous êtes tombé dans un piège !\n");
+                            if(Player_hit()){//Si retour de la fonction négatif le joueur est mort !
+                                  tmpDead=1;
+                            }
+
                         }
                     }
-                    GameState = AQUISITION_CLAVIER;
+                    if(tmpDead==1){
+                      GameState = LOOSE;
+                      tmpDead=0;
+                    }else{
+                    	GameState = AQUISITION_CLAVIER;
+                    }
+
                 }
                 break;
             case AQUISITION_CLAVIER:
@@ -156,6 +168,7 @@ int main()
                     OldPos = Player_get_pos();
                     Map_print();
                     printf("pieges : %d\n", nb_trap);
+                    printf("Joueur HP : %d\n", Player_getHP());
                     GameState = VERIF_VICTOIRE;
                 }
                 break;
@@ -167,6 +180,14 @@ int main()
                     Trap_delete(Trap_new());
                 }
                 break;
+            case LOOSE:
+              Player_stop();
+              printf("Vous êtes mort, vous avez perdu !\n");
+              GameState = INIT;
+              for (int k = 0; k < nb_trap; k++) {
+                  Trap_delete(Trap_new());
+              }
+              break;
             default:
                 break;
         }
