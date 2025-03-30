@@ -1,5 +1,5 @@
 /**
-* @file main.c
+ * @file main.c
  * @brief Module principal du jeu.
  *
  * Ce fichier contient l'initialisation du jeu et la gestion de la boucle principale.
@@ -22,8 +22,6 @@
  * @dotfile diagrameClass.puml
  */
 
-
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -36,77 +34,79 @@
 #include "Packages/main.h"
 #include <assert.h>
 
-
 #define NB_TRAP_DEFAULT 5
 #define NB_TRAP_MAX 20
 
+/// @brief Tableau des pièges.
 Trap *trap_tab[NB_TRAP_MAX];
 
+/// @brief Caractère représentant le joueur.
 static char PLAYER_CHAR = 'j';
+/// @brief Caractère représentant un piège.
 static char TRAP_CHAR = 'X';
+/// @brief Caractère représentant le trésor.
 static char TREASURE_CHAR = 'O';
 
+/// @brief États possibles de la machine à états globale.
 typedef enum
 {
-    INIT = 0,
-    AQUISITION_CLAVIER,
-    VERIF_VICTOIRE,
-    VICTOIRE
-}MAE_Global;
+    INIT = 0, ///< État d'initialisation.
+    AQUISITION_CLAVIER, ///< État d'acquisition clavier.
+    VERIF_VICTOIRE, ///< État de vérification de la victoire.
+    VICTOIRE ///< État de victoire.
+} MAE_Global;
 
+/// @brief Réforme le tableau des pièges.
+/// @param nb_trap_sup Nombre de pièges à supprimer.
 void reforme_trap_tab(int nb_trap_sup);
 
+/// @brief Nombre de pièges.
 static int nb_trap = 0;
 
+/**
+ * @brief Fonction principale du jeu. Suit les Etats de MAE_Global.
+ * @return Code de retour du programme.
+ */
 int main()
 {
-    char car ;
+    char car;
     int end = 0;
     MAE_Global GameState = INIT;
-    Coordinates OldPos = {0,0};
+    Coordinates OldPos = {0, 0};
     bool moved = false;
 
-
-    while(!end){
-        switch (GameState){
+    while (!end) {
+        switch (GameState) {
             case INIT:
                 Initialisation();
-                for (int testTrap = 0; testTrap < nb_trap; testTrap++){
-                  printf("Trap num %d\n", testTrap);
-                  assert(trap_tab[testTrap] != NULL);
+                for (int testTrap = 0; testTrap < nb_trap; testTrap++) {
+                    printf("Trap num %d\n", testTrap);
+                    assert(trap_tab[testTrap] != NULL);
                 }
                 Player_start();
                 GameState = AQUISITION_CLAVIER;
                 break;
             case VERIF_VICTOIRE:
 #ifdef AFFICHER_TRESOR
-              	printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
+                printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
                 printf("pos tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
 #endif
 #ifdef AFFICHER_PIEGES
-                for (int i = 0; i < nb_trap; i++)
-                {
+                for (int i = 0; i < nb_trap; i++) {
                     if (trap_tab[i] != NULL)
-                      	printf("tab [%d] / piege num %d : x : %d /y: %d\n", i, Trap_get_number(trap_tab[i]), Trap_get_pos(trap_tab[i]).x, Trap_get_pos(trap_tab[i]).y);
+                        printf("tab [%d] / piege num %d : x : %d /y: %d\n", i, Trap_get_number(trap_tab[i]), Trap_get_pos(trap_tab[i]).x, Trap_get_pos(trap_tab[i]).y);
                 }
 #endif
-                if (Player_get_pos().x == Treasure_get_pos().x && Player_get_pos().y == Treasure_get_pos().y)
-                {
+                if (Player_get_pos().x == Treasure_get_pos().x && Player_get_pos().y == Treasure_get_pos().y) {
                     printf("Vous avez trouvé le trésor !\n");
                     GameState = VICTOIRE;
-                }
-                else
-                {
-                    for (int i = 0; i < nb_trap; i++)
-                    {
-                        if (Player_get_pos().x == Trap_get_pos(trap_tab[i]).x && Player_get_pos().y == Trap_get_pos(trap_tab[i]).y)
-                        {
-
+                } else {
+                    for (int i = 0; i < nb_trap; i++) {
+                        if (Player_get_pos().x == Trap_get_pos(trap_tab[i]).x && Player_get_pos().y == Trap_get_pos(trap_tab[i]).y) {
                             reforme_trap_tab(i);
-                            Trap_delete(trap_tab[nb_trap-1]);
+                            Trap_delete(trap_tab[nb_trap - 1]);
                             nb_trap--;
                             printf("Vous êtes tombé dans un piège !\n");
-
                         }
                     }
                     GameState = AQUISITION_CLAVIER;
@@ -115,38 +115,36 @@ int main()
             case AQUISITION_CLAVIER:
                 car = getch();
                 moved = false;
-                switch(car)
-                {
+                switch (car) {
                     case 'q':
                         end = 1;
-                    break;
+                        break;
                     case 'i':
                         moved = Player_movement(DEP_UP);
-                    break;
+                        break;
                     case 'k':
                         moved = Player_movement(DEP_DOWN);
-                    break;
+                        break;
                     case 'j':
                         moved = Player_movement(DEP_LEFT);
-                    break;
+                        break;
                     case 'l':
                         moved = Player_movement(DEP_RIGHT);
-                    break;
+                        break;
                 }
-                if (moved){
-                      Map_set_case(Player_get_pos(), OldPos, PLAYER_CHAR);
-                      OldPos = Player_get_pos();
-                      Map_print();
-                      printf("pieges : %d\n", nb_trap);
-                      GameState = VERIF_VICTOIRE;
+                if (moved) {
+                    Map_set_case(Player_get_pos(), OldPos, PLAYER_CHAR);
+                    OldPos = Player_get_pos();
+                    Map_print();
+                    printf("pieges : %d\n", nb_trap);
+                    GameState = VERIF_VICTOIRE;
                 }
                 break;
             case VICTOIRE:
                 Player_stop();
                 printf("Vous avez gagné !\n");
                 end = 1;
-                for (int k = 0; k<nb_trap; k++)
-                {
+                for (int k = 0; k < nb_trap; k++) {
                     Trap_delete(Trap_new());
                 }
                 break;
@@ -158,17 +156,24 @@ int main()
     return 0;
 }
 
+/**
+ * @brief Reforme le tableau des pièges, en placant le piège à supprimer à la fin.
+ * @param idx_nb_trap_sup Index du piège à supprimer.
+ */
 void reforme_trap_tab(int idx_nb_trap_sup)
 {
-  	Trap *temp = trap_tab[idx_nb_trap_sup];
+    Trap *temp = trap_tab[idx_nb_trap_sup];
     printf("reforme tab : \nnb_trap : %d\n", nb_trap);
-    for (int i = idx_nb_trap_sup; i < nb_trap-1; i++)
-    {
-        printf("tab[%d] = tab[%d]\n", i, i+1);
+    for (int i = idx_nb_trap_sup; i < nb_trap - 1; i++) {
+        printf("tab[%d] = tab[%d]\n", i, i + 1);
         trap_tab[i] = trap_tab[i + 1];
     }
-    trap_tab[nb_trap-1] = temp;
+    trap_tab[nb_trap - 1] = temp;
 }
+
+/**
+ * @brief Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap).
+ */
 void Initialisation(void)
 {
     bool Treasure_OK = false;
@@ -176,29 +181,22 @@ void Initialisation(void)
     nb_trap = NB_TRAP_DEFAULT;
     Map_init();
     Player_init();
-    while(!Treasure_OK)
-    {
+    while (!Treasure_OK) {
         Treasure_init();
-        if (Player_get_pos().x != Treasure_get_pos().x || Player_get_pos().y != Treasure_get_pos().y)
-        {
+        if (Player_get_pos().x != Treasure_get_pos().x || Player_get_pos().y != Treasure_get_pos().y) {
             Treasure_OK = true;
         }
     }
 
-    for (int i = 0; i < nb_trap; i++)
-    {
+    for (int i = 0; i < nb_trap; i++) {
         Trap_OK = false;
-        while(!Trap_OK)
-        {
-			trap_tab[i] = Trap_new();
-            if (Player_get_pos().x != Trap_get_pos(trap_tab[i]).x || Player_get_pos().y != Trap_get_pos(trap_tab[i]).y)
-            {
+        while (!Trap_OK) {
+            trap_tab[i] = Trap_new();
+            if (Player_get_pos().x != Trap_get_pos(trap_tab[i]).x || Player_get_pos().y != Trap_get_pos(trap_tab[i]).y) {
                 Trap_OK = true;
             }
-            for (int j = 0; j < i; j++)
-            {
-                if (Trap_get_pos(trap_tab[i]).x == Trap_get_pos(trap_tab[j]).x && Trap_get_pos(trap_tab[i]).y == Trap_get_pos(trap_tab[j]).y)
-                {
+            for (int j = 0; j < i; j++) {
+                if (Trap_get_pos(trap_tab[i]).x == Trap_get_pos(trap_tab[j]).x && Trap_get_pos(trap_tab[i]).y == Trap_get_pos(trap_tab[j]).y) {
                     Trap_OK = false;
                 }
             }
@@ -208,15 +206,11 @@ void Initialisation(void)
 #endif
     }
 
-    Map_set_case(Player_get_pos(),Player_get_pos(), PLAYER_CHAR);
+    Map_set_case(Player_get_pos(), Player_get_pos(), PLAYER_CHAR);
     assert(Map_get_case(Player_get_pos()) == PLAYER_CHAR);
 
 #ifdef AFFICHER_TRESOR
-    Map_set_case(Treasure_get_pos(),Treasure_get_pos(), TREASURE_CHAR);
+    Map_set_case(Treasure_get_pos(), Treasure_get_pos(), TREASURE_CHAR);
 #endif
     Map_print();
 }
-
-
-
-
