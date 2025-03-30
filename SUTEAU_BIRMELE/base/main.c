@@ -61,6 +61,7 @@ typedef enum
 void reforme_trap_tab(int nb_trap_sup);
 
 /// @brief Nombre de pièges.
+static int nb_trap_start = 0;
 static int nb_trap = 0;
 
 /**
@@ -69,17 +70,35 @@ static int nb_trap = 0;
  */
 int main()
 {
+    bool trap_OK = false;
     char car;
     int end = 0;
     MAE_Global GameState = INIT;
     Coordinates OldPos = {0, 0};
     bool moved = false;
+    nb_trap_start = NB_TRAP_DEFAULT;
+
 
     while (!end) {
         switch (GameState) {
             case INIT:
+              	printf("Bonjour et bienvenue dans le jeu !\n");
+                printf("Vous devez trouver le trésor sans tomber dans les pièges !\n");
+
+                while (!trap_OK) {
+                    printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
+                    scanf("%d",&nb_trap_start);
+                    if (nb_trap_start > 0 && nb_trap_start <= NB_TRAP_MAX) {
+                        trap_OK = true;
+                    } else {
+                        printf("Nombre de pièges invalide. Veuillez réessayer.\n");
+                    }
+                }
+				trap_OK = false;
+                printf("nb_trap : %d\n", nb_trap_start);
+                nb_trap = nb_trap_start;
                 Initialisation();
-                for (int testTrap = 0; testTrap < nb_trap; testTrap++) {
+                for (int testTrap = 0; testTrap < nb_trap_start; testTrap++) {
                     printf("Trap num %d\n", testTrap);
                     assert(trap_tab[testTrap] != NULL);
                 }
@@ -143,7 +162,7 @@ int main()
             case VICTOIRE:
                 Player_stop();
                 printf("Vous avez gagné !\n");
-                end = 1;
+                GameState = INIT;
                 for (int k = 0; k < nb_trap; k++) {
                     Trap_delete(Trap_new());
                 }
@@ -152,7 +171,7 @@ int main()
                 break;
         }
     }
-    printf("Fin du jeu\n");
+    printf("stop du jeu\n");
     return 0;
 }
 
@@ -178,17 +197,16 @@ void Initialisation(void)
 {
     bool Treasure_OK = false;
     bool Trap_OK = false;
-    nb_trap = NB_TRAP_DEFAULT;
     Map_init();
     Player_init();
-    while (!Treasure_OK) {
+    while (!Treasure_OK){
         Treasure_init();
         if (Player_get_pos().x != Treasure_get_pos().x || Player_get_pos().y != Treasure_get_pos().y) {
             Treasure_OK = true;
         }
     }
 
-    for (int i = 0; i < nb_trap; i++) {
+    for (int i = 0; i < nb_trap_start; i++) {
         Trap_OK = false;
         while (!Trap_OK) {
             trap_tab[i] = Trap_new();
