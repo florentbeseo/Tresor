@@ -77,7 +77,7 @@ static int nb_trap = 0;
  */
 int main()
 {
-    bool trap_OK = false;
+    bool nb_trap_OK = false;
     char car;
     int end = 0;
     Pirate_state_t pirate_state = S_BLIND;
@@ -96,16 +96,21 @@ int main()
               	printf("Bonjour et bienvenue dans le jeu !\n");
                 printf("Vous devez trouver le trésor sans tomber dans les pièges !\n");
 
-                while (!trap_OK) {
+                while (!nb_trap_OK) {
                     printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
-                    scanf("%d",&nb_trap_start);
-                    if (nb_trap_start >= 0 && nb_trap_start <= NB_TRAP_MAX) {
-                        trap_OK = true;
-                    } else {
-                        printf("Nombre de pièges invalide. Veuillez réessayer.\n");
-                    }
+                    if (scanf("%d",&nb_trap_start)==1){
+                        if (nb_trap_start > 0 && nb_trap_start <= NB_TRAP_MAX) {
+                            nb_trap_OK = true;
+                        } else {
+                            printf("Nombre de pièges invalide. Veuillez réessayer.\n");
+                        }
+                    }else{
+                        printf("Entrée invalide. Veuillez entrer un nombre.\n");
+                        char c;
+                        while ((c = getchar()) != '\n' && c != EOF);//EndOfFile , Tant que c est pas EOF ou \n on vide le buffer d'entrée
+                        }
                 }
-				trap_OK = false;
+				nb_trap_OK = false;
                 printf("nb_trap : %d\n", nb_trap_start);
                 nb_trap = nb_trap_start;
                 Initialisation();
