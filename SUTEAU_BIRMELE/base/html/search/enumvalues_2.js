@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['e_5fdown_142',['E_DOWN',['../Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8a5c7eec7400c30c91265d61f9fadce970',1,'Player.c']]],
-  ['e_5fleft_143',['E_LEFT',['../Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8ae59abe93187b23c256fa0a48e819c971',1,'Player.c']]],
-  ['e_5fright_144',['E_RIGHT',['../Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8a42e691663203a75de534d435247e52c5',1,'Player.c']]],
-  ['e_5fstop_145',['E_STOP',['../Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8a4d5e6303dba6960140ca6bf4bab1e5ac',1,'Player.c']]],
-  ['e_5fup_146',['E_UP',['../Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8af6ed22fc118890767ec56504811fa901',1,'Player.c']]]
+  ['init_152',['INIT',['../main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36',1,'main.c']]]
 ];

@@ -82,6 +82,8 @@ Include dependency graph for Map.h:</div>
 <map name="aPackages_2Map_8h" id="aPackages_2Map_8h">
 <area shape="rect" title="Définition du module de gestion de la carte de jeu." alt="" coords="5,5,132,32"/>
 <area shape="rect" href="main_8h.html" title=" " alt="" coords="35,80,102,107"/>
+<area shape="rect" href="Trap_8h.html" title=" " alt="" coords="38,155,99,181"/>
+<area shape="rect" title=" " alt="" coords="31,229,106,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -104,15 +106,35 @@ Functions</h2></td></tr>
 <tr class="memitem:a4d3c4f682ef9577ef68a03ca5ad64caa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Map_8h.html#a4d3c4f682ef9577ef68a03ca5ad64caa">Map_print</a> (void)</td></tr>
 <tr class="memdesc:a4d3c4f682ef9577ef68a03ca5ad64caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la carte du jeu.  <a href="Map_8h.html#a4d3c4f682ef9577ef68a03ca5ad64caa">More...</a><br /></td></tr>
 <tr class="separator:a4d3c4f682ef9577ef68a03ca5ad64caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ae015ad3c7a73b84baf6fc735202663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Map_8h.html#a6ae015ad3c7a73b84baf6fc735202663">Map_set_case</a> (<a class="el" href="structCoordinates.html">Coordinates</a> newPos, <a class="el" href="structCoordinates.html">Coordinates</a> oldPos, char value)</td></tr>
+<tr class="memitem:a6ae015ad3c7a73b84baf6fc735202663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Map_8h.html#a6ae015ad3c7a73b84baf6fc735202663">Map_set_case</a> (Coordinates newPos, Coordinates oldPos, char value)</td></tr>
 <tr class="memdesc:a6ae015ad3c7a73b84baf6fc735202663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie une case de la carte.  <a href="Map_8h.html#a6ae015ad3c7a73b84baf6fc735202663">More...</a><br /></td></tr>
 <tr class="separator:a6ae015ad3c7a73b84baf6fc735202663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedad47118a7e6afe4dccae213c0b4f38"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Map_8h.html#aedad47118a7e6afe4dccae213c0b4f38">Map_get_case</a> (Coordinates pos)</td></tr>
+<tr class="separator:aedad47118a7e6afe4dccae213c0b4f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Définition du module de gestion de la carte de jeu. </p>
 <dl class="section author"><dt>Author</dt><dd>Florent </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>26/03/25 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aedad47118a7e6afe4dccae213c0b4f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedad47118a7e6afe4dccae213c0b4f38">&#9670;&nbsp;</a></span>Map_get_case()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Map_get_case </td>
+          <td>(</td>
+          <td class="paramtype">Coordinates&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adfaa37ce9e9e74782f4a34dff90baef9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adfaa37ce9e9e74782f4a34dff90baef9">&#9670;&nbsp;</a></span>Map_init()</h2>
 
@@ -164,13 +186,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Map_set_case </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoordinates.html">Coordinates</a>&#160;</td>
+          <td class="paramtype">Coordinates&#160;</td>
           <td class="paramname"><em>newPos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoordinates.html">Coordinates</a>&#160;</td>
+          <td class="paramtype">Coordinates&#160;</td>
           <td class="paramname"><em>oldPos</em>, </td>
         </tr>
         <tr>

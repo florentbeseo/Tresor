@@ -1,8 +1,9 @@
 <map id="Packages/Player.c" name="Packages/Player.c">
-<area shape="rect" id="node1" title="Implémentation du module Player." alt="" coords="78,5,215,32"/>
+<area shape="rect" id="node1" title="Implémentation du module Player." alt="" coords="70,5,207,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="44,155,127,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="241,155,316,181"/>
-<area shape="rect" id="node5" href="$Player_8h.html" title="Définition du module Player." alt="" coords="147,80,221,107"/>
-<area shape="rect" id="node6" href="$main_8h.html" title=" " alt="" coords="151,155,217,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="147,155,229,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="229,304,304,331"/>
+<area shape="rect" id="node5" href="$Player_8h.html" title="Définition du module Player." alt="" coords="221,80,296,107"/>
+<area shape="rect" id="node6" href="$main_8h.html" title=" " alt="" coords="304,155,371,181"/>
+<area shape="rect" id="node7" href="$Trap_8h.html" title=" " alt="" coords="307,229,368,256"/>
 </map>

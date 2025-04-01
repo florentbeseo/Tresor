@@ -62,8 +62,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">main.c File Reference</div>  </div>
 </div><!--header-->
@@ -79,42 +81,68 @@ $(function() {
 <code>#include &quot;<a class="el" href="Map_8h_source.html">Packages/Map.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Player_8h_source.html">Packages/Player.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Treasure_8h_source.html">Packages/Treasure.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Trap_8h_source.html">Packages/Trap.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="main_8h_source.html">Packages/main.h</a>&quot;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#amain_8c" alt=""/></div>
 <map name="amain_8c" id="amain_8c">
-<area shape="rect" title="Module principal du jeu." alt="" coords="449,5,515,32"/>
+<area shape="rect" title="Module principal du jeu." alt="" coords="486,5,553,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,76,107"/>
 <area shape="rect" title=" " alt="" coords="101,80,167,107"/>
-<area shape="rect" title=" " alt="" coords="203,155,286,181"/>
-<area shape="rect" href="grille_8h.html" title=" " alt="" coords="786,80,917,107"/>
-<area shape="rect" href="getch_8h.html" title=" " alt="" coords="941,80,1076,107"/>
-<area shape="rect" href="Map_8h.html" title="Définition du module de gestion de la carte de jeu." alt="" coords="635,80,761,107"/>
-<area shape="rect" href="main_8h.html" title=" " alt="" coords="506,155,573,181"/>
-<area shape="rect" href="Player_8h.html" title="Définition du module Player." alt="" coords="242,80,381,107"/>
-<area shape="rect" href="Treasure_8h.html" title=" " alt="" coords="405,80,559,107"/>
-<area shape="rect" title=" " alt="" coords="816,155,887,181"/>
-<area shape="rect" title=" " alt="" coords="311,155,386,181"/>
+<area shape="rect" title=" " alt="" coords="281,155,363,181"/>
+<area shape="rect" href="grille_8h.html" title=" " alt="" coords="887,80,1018,107"/>
+<area shape="rect" href="getch_8h.html" title=" " alt="" coords="1043,80,1177,107"/>
+<area shape="rect" href="Map_8h.html" title="Définition du module de gestion de la carte de jeu." alt="" coords="456,80,583,107"/>
+<area shape="rect" href="main_8h.html" title=" " alt="" coords="535,155,602,181"/>
+<area shape="rect" href="Trap_8h.html" title=" " alt="" coords="538,229,599,256"/>
+<area shape="rect" title=" " alt="" coords="479,304,554,331"/>
+<area shape="rect" href="Player_8h.html" title="Définition du module Player." alt="" coords="293,80,431,107"/>
+<area shape="rect" href="Treasure_8h.html" title=" " alt="" coords="709,80,863,107"/>
+<area shape="rect" title=" " alt="" coords="917,155,988,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2b8c661dc63662db016a3a94c0e9a546"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2b8c661dc63662db016a3a94c0e9a546">NB_TRAP_DEFAULT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a2b8c661dc63662db016a3a94c0e9a546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a900025b3f4894902f3e3f452c332c915"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a900025b3f4894902f3e3f452c332c915">NB_TRAP_MAX</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a900025b3f4894902f3e3f452c332c915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6bf0ea096743a0f3be10fe5a6df0963b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963b">MAE_Global</a> { <a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> = 0
+<tr class="memitem:a6bf0ea096743a0f3be10fe5a6df0963b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963b">MAE_Global</a> { <br />
+&#160;&#160;<a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> = 0
 , <a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf">AQUISITION_CLAVIER</a>
 , <a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9">VERIF_VICTOIRE</a>
 , <a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d">VICTOIRE</a>
+, <br />
+&#160;&#160;<a class="el" href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa">LOOSE</a>
+<br />
  }</td></tr>
+<tr class="memdesc:a6bf0ea096743a0f3be10fe5a6df0963b"><td class="mdescLeft">&#160;</td><td class="mdescRight">États possibles de la machine à états globale.  <a href="main_8c.html#a6bf0ea096743a0f3be10fe5a6df0963b">More...</a><br /></td></tr>
 <tr class="separator:a6bf0ea096743a0f3be10fe5a6df0963b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a8501d68d31a04962ead7ba7cb306457c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8501d68d31a04962ead7ba7cb306457c">reforme_trap_tab</a> (int nb_trap_sup)</td></tr>
+<tr class="memdesc:a8501d68d31a04962ead7ba7cb306457c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réforme le tableau des pièges.  <a href="main_8c.html#a8501d68d31a04962ead7ba7cb306457c">More...</a><br /></td></tr>
+<tr class="separator:a8501d68d31a04962ead7ba7cb306457c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale du jeu. Suit les Etats de MAE_Global.  <a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a626ee5dd844d0535a806714658bc37af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a626ee5dd844d0535a806714658bc37af">Initialisation</a> (void)</td></tr>
+<tr class="memdesc:a626ee5dd844d0535a806714658bc37af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap).  <a href="main_8c.html#a626ee5dd844d0535a806714658bc37af">More...</a><br /></td></tr>
 <tr class="separator:a626ee5dd844d0535a806714658bc37af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab5d1216f4ee38c5e0f06b73e26ac388a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Trap_8h.html#abae0b63552c6e1c62578386562890b13">Trap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab5d1216f4ee38c5e0f06b73e26ac388a">trap_tab</a> [<a class="el" href="main_8c.html#a900025b3f4894902f3e3f452c332c915">NB_TRAP_MAX</a>]</td></tr>
+<tr class="memdesc:ab5d1216f4ee38c5e0f06b73e26ac388a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau des pièges.  <a href="main_8c.html#ab5d1216f4ee38c5e0f06b73e26ac388a">More...</a><br /></td></tr>
+<tr class="separator:ab5d1216f4ee38c5e0f06b73e26ac388a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module principal du jeu. </p>
@@ -129,7 +157,36 @@ Modules du projet</h1>
 <li>Map : Gère la carte du jeu, y compris l'affichage et les modifications des cases.</li>
 <li>Treasure : Gère le trésor et ses interactions avec le joueur. </li>
 </ul>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a2b8c661dc63662db016a3a94c0e9a546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8c661dc63662db016a3a94c0e9a546">&#9670;&nbsp;</a></span>NB_TRAP_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_TRAP_DEFAULT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a900025b3f4894902f3e3f452c332c915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a900025b3f4894902f3e3f452c332c915">&#9670;&nbsp;</a></span>NB_TRAP_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_TRAP_MAX&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a6bf0ea096743a0f3be10fe5a6df0963b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bf0ea096743a0f3be10fe5a6df0963b">&#9670;&nbsp;</a></span>MAE_Global</h2>
 
@@ -141,11 +198,19 @@ Modules du projet</h1>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>États possibles de la machine à états globale. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf"></a>AQUISITION_CLAVIER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9"></a>VERIF_VICTOIRE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d"></a>VICTOIRE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>État d'initialisation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf"></a>AQUISITION_CLAVIER&#160;</td><td class="fielddoc"><p>État d'acquisition clavier. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9"></a>VERIF_VICTOIRE&#160;</td><td class="fielddoc"><p>État de vérification de la victoire. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d"></a>VICTOIRE&#160;</td><td class="fielddoc"><p>État de victoire. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa"></a>LOOSE&#160;</td><td class="fielddoc"><p>Etat de défaite du joueur. </p>
+</td></tr>
 </table>
 
 </div>
@@ -167,6 +232,8 @@ Modules du projet</h1>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap). </p>
+
 </div>
 </div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
@@ -183,6 +250,54 @@ Modules du projet</h1>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Fonction principale du jeu. Suit les Etats de MAE_Global. </p>
+<dl class="section return"><dt>Returns</dt><dd>Code de retour du programme. </dd></dl>
+
+</div>
+</div>
+<a id="a8501d68d31a04962ead7ba7cb306457c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8501d68d31a04962ead7ba7cb306457c">&#9670;&nbsp;</a></span>reforme_trap_tab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reforme_trap_tab </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx_nb_trap_sup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réforme le tableau des pièges. </p>
+<p>Reforme le tableau des pièges, en placant le piège à supprimer à la fin.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_trap_sup</td><td>Nombre de pièges à supprimer.</td></tr>
+    <tr><td class="paramname">idx_nb_trap_sup</td><td>Index du piège à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ab5d1216f4ee38c5e0f06b73e26ac388a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d1216f4ee38c5e0f06b73e26ac388a">&#9670;&nbsp;</a></span>trap_tab</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Trap_8h.html#abae0b63552c6e1c62578386562890b13">Trap</a>* trap_tab[<a class="el" href="main_8c.html#a900025b3f4894902f3e3f452c332c915">NB_TRAP_MAX</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tableau des pièges. </p>
 
 </div>
 </div>

@@ -8,11 +8,12 @@ Définition du module Player.
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}assert.\+h\char`\"{}}\newline
-Include dependency graph for Player.\+h\+:\nopagebreak
+Include dependency graph for Player.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=284pt]{Player_8h__incl}
+\includegraphics[width=239pt]{Player_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -36,9 +37,15 @@ void \mbox{\hyperlink{Player_8h_a33678c1d8f8a19d9e4ab8b56f06f6569}{Player\+\_\+s
 \begin{DoxyCompactList}\small\item\em Démarre le joueur en le mettant à l\textquotesingle{}état REPOS. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Player_8h_a0e062e6366b868d8212f7e93908a1cb6}{Player\+\_\+stop}} (void)
 \begin{DoxyCompactList}\small\item\em Arrête le joueur et la MaE. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{Player_8h_a991b6a13858282a8a37c18a2efc9bcdf}{Player\+\_\+movement}} (\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}} dir)
+int \mbox{\hyperlink{Player_8h_ad89c352310996f4d0807ab91ae955bd8}{Player\+\_\+get\+HP}} (void)
+\begin{DoxyCompactList}\small\item\em Retourne les nonbre de HP du joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}{Player\+\_\+set\+HP}} (int $\ast$HP)
+\begin{DoxyCompactList}\small\item\em Definit le nombre de HP du joueur. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Player_8h_a4847135093e06aa37a5eb44407183538}{Player\+\_\+hit}} (void)
+\begin{DoxyCompactList}\small\item\em Reduit la vie du joueur de 1 HP. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Player_8h_a991b6a13858282a8a37c18a2efc9bcdf}{Player\+\_\+movement}} (direction\+\_\+t dir)
 \begin{DoxyCompactList}\small\item\em Gère le déplacement du joueur. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structCoordinates}{Coordinates}} \mbox{\hyperlink{Player_8h_afb0255fa672477a10429a61a93f121ba}{Player\+\_\+get\+\_\+pos}} (void)
+Coordinates \mbox{\hyperlink{Player_8h_afb0255fa672477a10429a61a93f121ba}{Player\+\_\+get\+\_\+pos}} (void)
 \begin{DoxyCompactList}\small\item\em Retourne la position actuelle du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -71,7 +78,7 @@ Structure du joueur.
 \index{Player.h@{Player.h}!Player\_get\_pos@{Player\_get\_pos}}
 \index{Player\_get\_pos@{Player\_get\_pos}!Player.h@{Player.h}}
 \doxysubsubsection{\texorpdfstring{Player\_get\_pos()}{Player\_get\_pos()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structCoordinates}{Coordinates}} Player\+\_\+get\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Coordinates Player\+\_\+get\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -80,7 +87,30 @@ Retourne la position actuelle du joueur.
 \begin{DoxyReturn}{Returns}
 La structure contenant les coordonnées du joueur. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Player_8h_afdefe502f9fcd570d8d08518d4849047}\label{Player_8h_afdefe502f9fcd570d8d08518d4849047}} 
+\mbox{\Hypertarget{Player_8h_ad89c352310996f4d0807ab91ae955bd8}\label{Player_8h_ad89c352310996f4d0807ab91ae955bd8}} 
+\index{Player.h@{Player.h}!Player\_getHP@{Player\_getHP}}
+\index{Player\_getHP@{Player\_getHP}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{Player\_getHP()}{Player\_getHP()}}
+{\footnotesize\ttfamily int Player\+\_\+get\+HP (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retourne les nonbre de HP du joueur. 
+
+\begin{DoxyReturn}{Returns}
+Un entier correspondant au HP du joueur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Player_8h_a4847135093e06aa37a5eb44407183538}\label{Player_8h_a4847135093e06aa37a5eb44407183538}} 
+\index{Player.h@{Player.h}!Player\_hit@{Player\_hit}}
+\index{Player\_hit@{Player\_hit}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{Player\_hit()}{Player\_hit()}}
+{\footnotesize\ttfamily bool Player\+\_\+hit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reduit la vie du joueur de 1 HP. 
+
+Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false. \mbox{\Hypertarget{Player_8h_afdefe502f9fcd570d8d08518d4849047}\label{Player_8h_afdefe502f9fcd570d8d08518d4849047}} 
 \index{Player.h@{Player.h}!Player\_init@{Player\_init}}
 \index{Player\_init@{Player\_init}!Player.h@{Player.h}}
 \doxysubsubsection{\texorpdfstring{Player\_init()}{Player\_init()}}
@@ -94,7 +124,7 @@ Cette fonction met le joueur dans un état initial avec des valeurs par défaut.
 \index{Player.h@{Player.h}!Player\_movement@{Player\_movement}}
 \index{Player\_movement@{Player\_movement}!Player.h@{Player.h}}
 \doxysubsubsection{\texorpdfstring{Player\_movement()}{Player\_movement()}}
-{\footnotesize\ttfamily bool Player\+\_\+movement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}}}]{dir }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Player\+\_\+movement (\begin{DoxyParamCaption}\item[{direction\+\_\+t}]{dir }\end{DoxyParamCaption})}
 
 
 
@@ -108,6 +138,16 @@ Gère le déplacement du joueur.
 \begin{DoxyReturn}{Returns}
 true si le déplacement a été effectué, sinon false. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}\label{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}} 
+\index{Player.h@{Player.h}!Player\_setHP@{Player\_setHP}}
+\index{Player\_setHP@{Player\_setHP}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{Player\_setHP()}{Player\_setHP()}}
+{\footnotesize\ttfamily void Player\+\_\+set\+HP (\begin{DoxyParamCaption}\item[{int $\ast$}]{HP }\end{DoxyParamCaption})}
+
+
+
+Definit le nombre de HP du joueur. 
+
 \mbox{\Hypertarget{Player_8h_a33678c1d8f8a19d9e4ab8b56f06f6569}\label{Player_8h_a33678c1d8f8a19d9e4ab8b56f06f6569}} 
 \index{Player.h@{Player.h}!Player\_start@{Player\_start}}
 \index{Player\_start@{Player\_start}!Player.h@{Player.h}}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_122',['state',['../structPlayer__s.html#a206524e3cad2761d2c226de11b9ae9ab',1,'Player_s']]]
+  ['numtrap_129',['numTrap',['../structTrap__s.html#acacdae3f801383786f2cff84d9dd18ab',1,'Trap_s']]]
 ];
