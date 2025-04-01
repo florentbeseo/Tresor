@@ -81,8 +81,8 @@ extern void Player_init(void) {
 }
 
 /// @brief Definit le nombre de HP du joueur
-extern void Player_setHP(int *HP){
-  player.HP = *HP;
+extern void Player_setHP(int HP){
+  player.HP = HP;
 }
 
 /// @brief Retourne les nonbre de HP du joueur
@@ -92,7 +92,7 @@ extern int Player_getHP(void){
 }
 
 /// @brief Reduit la vie du joueur de 1 HP.
-/// @details Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false.
+/// @details Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi true.
 extern bool Player_hit(void){
  assert(player.HP > 0);
  player.HP--;

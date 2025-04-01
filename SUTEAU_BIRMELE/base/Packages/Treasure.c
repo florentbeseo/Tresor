@@ -16,7 +16,6 @@ struct Treasure_s{
 static Treasure treasure;
 
 extern void Treasure_init(void){
-	srand( time( NULL ) );
   	treasure.position_x = rand()%10; // nombre entre 0 et 9
   	treasure.position_y = rand()%10; // nombre entre 0 et 9
 
