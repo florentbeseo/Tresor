@@ -13,36 +13,56 @@ Module principal du jeu.
 {\ttfamily \#include \char`\"{}Packages/\+Map.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Player.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Treasure.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Packages/\+Trap.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/main.\+h\char`\"{}}\newline
-Include dependency graph for main.\+c\+:\nopagebreak
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{main_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a2b8c661dc63662db016a3a94c0e9a546}{NB\+\_\+\+TRAP\+\_\+\+DEFAULT}}~5
+\item 
+\#define \mbox{\hyperlink{main_8c_a900025b3f4894902f3e3f452c332c915}{NB\+\_\+\+TRAP\+\_\+\+MAX}}~20
+\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}{MAE\+\_\+\+Global}} \{ \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36}{INIT}} = 0
+enum \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}{MAE\+\_\+\+Global}} \{ \newline
+\mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36}{INIT}} = 0
 , \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf}{AQUISITION\+\_\+\+CLAVIER}}
 , \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}{VERIF\+\_\+\+VICTOIRE}}
 , \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}{VICTOIRE}}
+, \newline
+\mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa}{LOOSE}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em États possibles de la machine à états globale. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{main_8c_a8501d68d31a04962ead7ba7cb306457c}{reforme\+\_\+trap\+\_\+tab}} (int nb\+\_\+trap\+\_\+sup)
+\begin{DoxyCompactList}\small\item\em Réforme le tableau des pièges. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction principale du jeu. Suit les Etats de MAE\+\_\+\+Global. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a626ee5dd844d0535a806714658bc37af}{Initialisation}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Trap_8h_abae0b63552c6e1c62578386562890b13}{Trap}} $\ast$ \mbox{\hyperlink{main_8c_ab5d1216f4ee38c5e0f06b73e26ac388a}{trap\+\_\+tab}} \mbox{[}\mbox{\hyperlink{main_8c_a900025b3f4894902f3e3f452c332c915}{NB\+\_\+\+TRAP\+\_\+\+MAX}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tableau des pièges. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Module principal du jeu. 
 
-Ce fichier contient l\textquotesingle{}initialisation du jeu et la gestion de la boucle principale. Il interagit avec les modules Player, Map, et Treasure pour gérer l\textquotesingle{}état du jeu.\hypertarget{main_8c_description}{}\doxysubsection{Description du jeu}\label{main_8c_description}
+Ce fichier contient l\textquotesingle{}initialisation du jeu et la gestion de la boucle principale. Il interagit avec les modules Player, Map, et Treasure pour gérer l\textquotesingle{}état du jeu.\hypertarget{Trap_8c_description}{}\doxysubsection{Description du jeu}\label{Trap_8c_description}
 Le jeu consiste à déplacer un joueur sur une carte. La carte est représentée par une grille et le joueur peut se déplacer dans différentes directions.\hypertarget{main_8c_modules}{}\doxysubsection{Modules du projet}\label{main_8c_modules}
 
 \begin{DoxyItemize}
@@ -51,6 +71,21 @@ Le jeu consiste à déplacer un joueur sur une carte. La carte est représentée
 \item Treasure \+: Gère le trésor et ses interactions avec le joueur. 
 \end{DoxyItemize}
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_a2b8c661dc63662db016a3a94c0e9a546}\label{main_8c_a2b8c661dc63662db016a3a94c0e9a546}} 
+\index{main.c@{main.c}!NB\_TRAP\_DEFAULT@{NB\_TRAP\_DEFAULT}}
+\index{NB\_TRAP\_DEFAULT@{NB\_TRAP\_DEFAULT}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{NB\_TRAP\_DEFAULT}{NB\_TRAP\_DEFAULT}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+TRAP\+\_\+\+DEFAULT~5}
+
+\mbox{\Hypertarget{main_8c_a900025b3f4894902f3e3f452c332c915}\label{main_8c_a900025b3f4894902f3e3f452c332c915}} 
+\index{main.c@{main.c}!NB\_TRAP\_MAX@{NB\_TRAP\_MAX}}
+\index{NB\_TRAP\_MAX@{NB\_TRAP\_MAX}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{NB\_TRAP\_MAX}{NB\_TRAP\_MAX}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+TRAP\+\_\+\+MAX~20}
+
+
+
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}} 
 \index{main.c@{main.c}!MAE\_Global@{MAE\_Global}}
@@ -58,21 +93,29 @@ Le jeu consiste à déplacer un joueur sur une carte. La carte est représentée
 \doxysubsubsection{\texorpdfstring{MAE\_Global}{MAE\_Global}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}{MAE\+\_\+\+Global}}}
 
+
+
+États possibles de la machine à états globale. 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{INIT@{INIT}!main.c@{main.c}}\index{main.c@{main.c}!INIT@{INIT}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36}} 
-INIT&\\
+INIT&État d\textquotesingle{}initialisation. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{AQUISITION\_CLAVIER@{AQUISITION\_CLAVIER}!main.c@{main.c}}\index{main.c@{main.c}!AQUISITION\_CLAVIER@{AQUISITION\_CLAVIER}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf}} 
-AQUISITION\+\_\+\+CLAVIER&\\
+AQUISITION\+\_\+\+CLAVIER&État d\textquotesingle{}acquisition clavier. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{VERIF\_VICTOIRE@{VERIF\_VICTOIRE}!main.c@{main.c}}\index{main.c@{main.c}!VERIF\_VICTOIRE@{VERIF\_VICTOIRE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}} 
-VERIF\+\_\+\+VICTOIRE&\\
+VERIF\+\_\+\+VICTOIRE&État de vérification de la victoire. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{VICTOIRE@{VICTOIRE}!main.c@{main.c}}\index{main.c@{main.c}!VICTOIRE@{VICTOIRE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}} 
-VICTOIRE&\\
+VICTOIRE&État de victoire. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOOSE@{LOOSE}!main.c@{main.c}}\index{main.c@{main.c}!LOOSE@{LOOSE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa}} 
+LOOSE&Etat de défaite du joueur. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -85,9 +128,52 @@ VICTOIRE&\\
 \doxysubsubsection{\texorpdfstring{Initialisation()}{Initialisation()}}
 {\footnotesize\ttfamily void Initialisation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap). 
+
 \mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du jeu. Suit les Etats de MAE\+\_\+\+Global. 
+
+\begin{DoxyReturn}{Returns}
+Code de retour du programme. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a8501d68d31a04962ead7ba7cb306457c}\label{main_8c_a8501d68d31a04962ead7ba7cb306457c}} 
+\index{main.c@{main.c}!reforme\_trap\_tab@{reforme\_trap\_tab}}
+\index{reforme\_trap\_tab@{reforme\_trap\_tab}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reforme\_trap\_tab()}{reforme\_trap\_tab()}}
+{\footnotesize\ttfamily void reforme\+\_\+trap\+\_\+tab (\begin{DoxyParamCaption}\item[{int}]{idx\+\_\+nb\+\_\+trap\+\_\+sup }\end{DoxyParamCaption})}
+
+
+
+Réforme le tableau des pièges. 
+
+Reforme le tableau des pièges, en placant le piège à supprimer à la fin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+trap\+\_\+sup} & Nombre de pièges à supprimer.\\
+\hline
+{\em idx\+\_\+nb\+\_\+trap\+\_\+sup} & Index du piège à supprimer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_ab5d1216f4ee38c5e0f06b73e26ac388a}\label{main_8c_ab5d1216f4ee38c5e0f06b73e26ac388a}} 
+\index{main.c@{main.c}!trap\_tab@{trap\_tab}}
+\index{trap\_tab@{trap\_tab}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{trap\_tab}{trap\_tab}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Trap_8h_abae0b63552c6e1c62578386562890b13}{Trap}}$\ast$ trap\+\_\+tab\mbox{[}\mbox{\hyperlink{main_8c_a900025b3f4894902f3e3f452c332c915}{NB\+\_\+\+TRAP\+\_\+\+MAX}}\mbox{]}}
+
+
+
+Tableau des pièges. 
 

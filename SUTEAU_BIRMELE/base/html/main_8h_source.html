@@ -72,40 +72,40 @@ $(function() {
 <a href="main_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by florent on 26/03/25.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Trap_8h.html">Trap.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef MAIN_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define MAIN_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="main_8h.html#ad02fab50eba3e27969ad00f27a73ea92">    9</a></span>&#160;<span class="preprocessor">#define HEIGHT_MAP 10</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="main_8h.html#aac38b3188d51727be5b2ee2bf3f9d856">   10</a></span>&#160;<span class="preprocessor">#define WIDTH_MAP 10</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structCoordinates.html">   12</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structCoordinates.html#a11c878fbd2d0805c91af17d2ba2289a1">   13</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structCoordinates.html#a11c878fbd2d0805c91af17d2ba2289a1">x</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07">   14</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07">y</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}<a class="code" href="structCoordinates.html">Coordinates</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba150778b8051a554cf17df0fc598d5786">   18</a></span>&#160;    <a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba150778b8051a554cf17df0fc598d5786">DEP_UP</a> = 0,</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba42fcdbdb993a8832821cc3b6776b5506">   19</a></span>&#160;    <a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba42fcdbdb993a8832821cc3b6776b5506">DEP_DOWN</a>,</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba4c5f4cc77a6ad7588fdad02ced27084c">   20</a></span>&#160;    <a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba4c5f4cc77a6ad7588fdad02ced27084c">DEP_LEFT</a>,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba988ffe4ec6ec45204c0f478f2430d7f1">DEP_RIGHT</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba988ffe4ec6ec45204c0f478f2430d7f1">   22</a></span>&#160;}<a class="code" href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define AFFICHER_DEBUG 1</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if AFFICHER_DEBUG</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">    #define AFFICHER_TRESOR</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">    #define AFFICHER_PIEGES</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define HEIGHT_MAP 10</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define WIDTH_MAP 10</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define HP_DEFAULT 3</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> x;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> y;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}Coordinates;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8h.html#a626ee5dd844d0535a806714658bc37af">Initialisation</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MAIN_H</span></div>
-<div class="ttc" id="amain_8h_html_a626ee5dd844d0535a806714658bc37af"><div class="ttname"><a href="main_8h.html#a626ee5dd844d0535a806714658bc37af">Initialisation</a></div><div class="ttdeci">void Initialisation(void)</div><div class="ttdef"><b>Definition:</b> main.c:116</div></div>
-<div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6b"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6b">direction_t</a></div><div class="ttdeci">direction_t</div><div class="ttdef"><b>Definition:</b> main.h:17</div></div>
-<div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6ba150778b8051a554cf17df0fc598d5786"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba150778b8051a554cf17df0fc598d5786">DEP_UP</a></div><div class="ttdeci">@ DEP_UP</div><div class="ttdef"><b>Definition:</b> main.h:18</div></div>
-<div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6ba42fcdbdb993a8832821cc3b6776b5506"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba42fcdbdb993a8832821cc3b6776b5506">DEP_DOWN</a></div><div class="ttdeci">@ DEP_DOWN</div><div class="ttdef"><b>Definition:</b> main.h:19</div></div>
-<div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6ba4c5f4cc77a6ad7588fdad02ced27084c"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba4c5f4cc77a6ad7588fdad02ced27084c">DEP_LEFT</a></div><div class="ttdeci">@ DEP_LEFT</div><div class="ttdef"><b>Definition:</b> main.h:20</div></div>
-<div class="ttc" id="amain_8h_html_ae9ae980041e438eed7a3af43ce4e9f6ba988ffe4ec6ec45204c0f478f2430d7f1"><div class="ttname"><a href="main_8h.html#ae9ae980041e438eed7a3af43ce4e9f6ba988ffe4ec6ec45204c0f478f2430d7f1">DEP_RIGHT</a></div><div class="ttdeci">@ DEP_RIGHT</div><div class="ttdef"><b>Definition:</b> main.h:21</div></div>
-<div class="ttc" id="astructCoordinates_html"><div class="ttname"><a href="structCoordinates.html">Coordinates</a></div><div class="ttdef"><b>Definition:</b> main.h:12</div></div>
-<div class="ttc" id="astructCoordinates_html_a11c878fbd2d0805c91af17d2ba2289a1"><div class="ttname"><a href="structCoordinates.html#a11c878fbd2d0805c91af17d2ba2289a1">Coordinates::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> main.h:13</div></div>
-<div class="ttc" id="astructCoordinates_html_aae83211da8e94ae2edd3b407c19bff07"><div class="ttname"><a href="structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07">Coordinates::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> main.h:14</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    DEP_UP = 0,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    DEP_DOWN,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    DEP_LEFT,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    DEP_RIGHT</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}direction_t;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8c.html#a626ee5dd844d0535a806714658bc37af">Initialisation</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MAIN_H</span></div>
+<div class="ttc" id="aTrap_8h_html"><div class="ttname"><a href="Trap_8h.html">Trap.h</a></div></div>
+<div class="ttc" id="amain_8c_html_a626ee5dd844d0535a806714658bc37af"><div class="ttname"><a href="main_8c.html#a626ee5dd844d0535a806714658bc37af">Initialisation</a></div><div class="ttdeci">void Initialisation(void)</div><div class="ttdoc">Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure,...</div><div class="ttdef"><b>Definition:</b> main.c:217</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

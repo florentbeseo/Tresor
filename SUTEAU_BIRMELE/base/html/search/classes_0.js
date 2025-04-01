@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coordinates_79',['Coordinates',['../structCoordinates.html',1,'']]]
+  ['player_5fs_82',['Player_s',['../structPlayer__s.html',1,'']]]
 ];

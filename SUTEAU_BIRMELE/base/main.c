@@ -89,12 +89,17 @@ int main()
 
                 while (!trap_OK) {
                     printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
-                    scanf("%d",&nb_trap_start);
-                    if (nb_trap_start > 0 && nb_trap_start <= NB_TRAP_MAX) {
-                        trap_OK = true;
-                    } else {
-                        printf("Nombre de pièges invalide. Veuillez réessayer.\n");
-                    }
+                    if (scanf("%d",&nb_trap_start)==1){
+                        if (nb_trap_start > 0 && nb_trap_start <= NB_TRAP_MAX) {
+                            trap_OK = true;
+                        } else {
+                            printf("Nombre de pièges invalide. Veuillez réessayer.\n");
+                        }
+                    }else{
+                        printf("Entrée invalide. Veuillez entrer un nombre.\n");
+                        char c;
+                        while ((c = getchar()) != '\n' && c != EOF);//EndOfFile , Tant que c est pas EOF ou \n on vide le buffer d'entrée
+                        }
                 }
 				trap_OK = false;
                 printf("nb_trap : %d\n", nb_trap_start);
