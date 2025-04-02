@@ -24,7 +24,6 @@ typedef enum{
 struct Pirate_s{
     int position_x;
     int position_y;
-    state
 };
 
 /// @brief Représente les actions possibles pour le joueur.
@@ -56,25 +55,28 @@ extern Coordinates Pirate_get_pos(void){
     return pos_Tresor;
 }
 
-extern Pirate_state_t Pirate_see_player(Coordinates pos_player){
-    if (pos_player.x == pirate.position_x && pirate.position_y > pos_player.y) {
+extern bool Pirate_action(Coordinates pos_player){
+  if (pos_player.x == pirate.position_x && pirate.position_y > pos_player.y) {
         printf("pirate coming on your bottom \n");
-        return S_SEE_FROM_DOWN;
+        Pirate_movement(DEP_UP);
+        return true;
     }
     else if (pos_player.x == pirate.position_x && pirate.position_y < pos_player.y) {
         printf("pirate coming on your top \n");
-        return S_SEE_FROM_UP;
+        Pirate_movement(DEP_DOWN);
+        return true;
     }
     else if (pos_player.y == pirate.position_y && pirate.position_x > pos_player.x) {
         printf("pirate coming on your right\n");
-        return S_SEE_FROM_RIGHT;
+        Pirate_movement(DEP_LEFT);
+        return true;
     }
     else if (pos_player.y == pirate.position_y && pirate.position_x < pos_player.x) {
         printf("pirate coming on your left\n");
         Pirate_movement(DEP_RIGHT);
-        return
+        return true;
     }
-    return S_BLIND;
+    return false;
 }
 
 extern bool Pirate_is_on_player(Coordinates pos_player){

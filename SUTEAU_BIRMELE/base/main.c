@@ -80,7 +80,6 @@ int main()
     bool nb_trap_OK = false;
     char car;
     int end = 0;
-    Pirate_state_t pirate_state = S_BLIND;
     int tmpDead = 0;
     MAE_Global GameState = INIT;
     Coordinates OldPosPlayer;
@@ -150,33 +149,12 @@ int main()
                     Map_print();
                     printf("pieges : %d\n", nb_trap);
                     printf("Joueur HP : %d\n", Player_getHP());
-                    GameState = PIRATE;
-                }
-                break;
-            case PIRATE:
-                pirate_state = Pirate_see_player(Player_get_pos());
-                switch (pirate_state){
 
-                    case S_SEE_FROM_LEFT:
-                        pirate_moved = Pirate_movement(DEP_RIGHT );
-                        break;
-                    case S_SEE_FROM_RIGHT:
-                        pirate_moved = Pirate_movement(DEP_LEFT);
-                        break;
-                    case S_SEE_FROM_UP:
-                        pirate_moved = Pirate_movement(DEP_DOWN);
-                        break;
-                    case S_SEE_FROM_DOWN:
-                        pirate_moved = Pirate_movement(DEP_UP );
-                        break;
-                    case S_BLIND:
-                        break;
-                    default:
-                    break;
+                    pirate_moved = Pirate_action(Player_get_pos());
+                    if (pirate_moved) {
+                        Map_set_case(Pirate_get_pos(), OldPosPirate, PIRATE_CHAR);
+                        OldPosPirate = Pirate_get_pos();
                     }
-                if (pirate_moved) {
-                    Map_set_case(Pirate_get_pos(), OldPosPirate, PIRATE_CHAR);
-                    OldPosPirate = Pirate_get_pos();
                 }
                 GameState = VERIF_VICTOIRE;
                 break;
