@@ -1,34 +1,50 @@
 @startuml
 class Player {
-    - int position_x
-    - int position_y
-    - state_t state
-    + void Player_init()
-    + void Player_start()
-    + void Player_stop()
-    + bool Player_movement(direction_t dir)
-    + Coordinates Player_get_pos()
+    - position_x: int
+    - position_y: int
+    - state: state_t
+    + Player_movement(direction_t dir): bool
+    + Player_init(): void
+    + Player_start(): void
+    + Player_stop():void
+    + Player_getHP(): int
+    + Player_setHP(int HP): void
+    + Player_hit(): bool
+    + Player_get_pos(): Coordinates
+}
+class Map {
+    - game_map: char **
+    + Map_init(): void
+    + Map_print(): void
+    + Map_set_case(Coordinates newPos, Coordinates oldPos, char value): void
+    + Map_get_case(Coordinates pos): char
 }
 
-class Map {
-    - char **game_map
-    + void Map_init()
-    + void Map_print()
-    + void Map_set_case(Coordinates newPos, Coordinates oldPos, char value)
-}
 
 class Treasure {
-    - int position_x
-    - int position_y
-    + void Treasure_init()
-    + Coordinates Treasure_get_pos()
+    - position_x: int
+    - position_y: int
+    + Treasure_init(): void
+    + Treasure_get_pos(): Coordinates
 }
+
+class Pirate{
+    - position_x: int
+    - position_y: int
+    + Pirate_init(): void
+    + Pirate_is_on_player(Coordinates pos_player): bool
+    + Pirate_see_player(Coordinates pos): Pirate_state_t
+    + Pirate_movement(direction_t dir): bool
+}
+
 
 enum MAE_Global {
     INIT,
     AQUISITION_CLAVIER,
     VERIF_VICTOIRE,
-    VICTOIRE
+    PIRATE,
+    VICTOIRE,
+    LOOSE
 }
 
 Player -- Map : "Interagit avec"

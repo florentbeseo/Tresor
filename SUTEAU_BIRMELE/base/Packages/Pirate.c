@@ -10,9 +10,21 @@
 #include "main.h"
 #include <time.h>
 
+typedef enum{
+    S_BLIND = 0,
+    S_SEE_FROM_LEFT,
+    S_SEE_FROM_RIGHT,
+    S_SEE_FROM_UP,
+    S_SEE_FROM_DOWN,
+}Pirate_state_t;
+
+
+
+
 struct Pirate_s{
     int position_x;
     int position_y;
+    state
 };
 
 /// @brief Représente les actions possibles pour le joueur.
@@ -59,7 +71,8 @@ extern Pirate_state_t Pirate_see_player(Coordinates pos_player){
     }
     else if (pos_player.y == pirate.position_y && pirate.position_x < pos_player.x) {
         printf("pirate coming on your left\n");
-        return S_SEE_FROM_LEFT;
+        Pirate_movement(DEP_RIGHT);
+        return
     }
     return S_BLIND;
 }
