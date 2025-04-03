@@ -31,7 +31,7 @@ extern void Map_init(void) {
 /// @brief Affiche la carte du jeu.
 /// @details Utilise la fonction `grille_print` pour afficher la grille sur la console.
 extern void Map_print(void) {
-//    system("clear"); // Effacement de l'écran (commenté pour éviter des problèmes de compatibilité)
+    system("clear"); // Effacement de l'écran (commenté pour éviter des problèmes de compatibilité)
     grille_print(game_map, WIDTH_MAP, HEIGHT_MAP);
 }
 

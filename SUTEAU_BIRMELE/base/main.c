@@ -321,6 +321,9 @@ static void Initialisation(void)
                     Trap_OK = false;
                 }
             }
+            if (TRAP_OK == false) {
+                Trap_delete(trap_tab[i]);
+            }
         }
 		#ifdef AFFICHER_PIEGES
         	Map_set_case(Trap_get_pos(trap_tab[i]), Trap_get_pos(trap_tab[i]), TRAP_CHAR);
