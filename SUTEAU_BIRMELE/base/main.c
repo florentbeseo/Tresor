@@ -80,9 +80,10 @@ static char PIRATE_CHAR = 'P';
 /// @brief Caractère représentant un piège.
 static char TRAP_CHAR = 'X';
 #endif
+#ifdef AFFICHER_TRESOR
 /// @brief Caractère représentant le trésor.
 static char TREASURE_CHAR = 'O';
-
+#endif
 /// @brief États possibles de la machine à états globale.
 typedef enum
 {
@@ -96,7 +97,8 @@ typedef enum
 
 /// @brief Réforme le tableau des pièges.
 /// @param nb_trap_sup Nombre de pièges à supprimer.
-void reforme_trap_tab(int nb_trap_sup);
+static void reforme_trap_tab(int nb_trap_sup);
+static void Initialisation(void);
 
 /// @brief Nombre de pièges.
 static int nb_trap_start = 0;
@@ -112,13 +114,13 @@ int main()
     char car;
     int end = 0;
     int tmpDead = 0;
-    MAE_Global GameState = INIT;
     Coordinates OldPosPlayer;
     Coordinates OldPosPirate;
     bool moved = false;
     bool pirate_moved = false;
     nb_trap_start = NB_TRAP_DEFAULT;
 
+    MAE_Global GameState = INIT;
 
     while (!end) {
         switch (GameState) {
@@ -126,6 +128,7 @@ int main()
               	printf("Bonjour et bienvenue dans le jeu !\n");
                 printf("Vous devez trouver le trésor sans tomber dans les pièges !\n");
 
+                nb_trap_OK = false;
                 while (!nb_trap_OK) {
                     printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
                     if (scanf("%d",&nb_trap_start)==1){//Gesiton erreur d'execution lies au scanf
@@ -140,7 +143,6 @@ int main()
                         while ((c = getchar()) != '\n' && c != EOF);//EndOfFile , Tant que c est pas EOF ou \n on vide le buffer d'entrée
                         }
                 }
-				nb_trap_OK = false;
                 printf("nb_trap : %d\n", nb_trap_start);
                 nb_trap = nb_trap_start;
                 Initialisation();
@@ -258,7 +260,7 @@ int main()
  * @brief Reforme le tableau des pièges, en placant le piège à supprimer à la fin.
  * @param idx_nb_trap_sup Index du piège à supprimer.
  */
-void reforme_trap_tab(int idx_nb_trap_sup)
+static void reforme_trap_tab(int idx_nb_trap_sup)
 {
     Trap *temp = trap_tab[idx_nb_trap_sup];
     //printf("reforme tab : \nnb_trap : %d\n", nb_trap);
@@ -272,13 +274,16 @@ void reforme_trap_tab(int idx_nb_trap_sup)
 /**
  * @brief Initialise le jeu en appellant les initialisations des modules (Map, Player, Treasure, Trap).
  */
-void Initialisation(void)
+static void Initialisation(void)
 {
     bool Treasure_OK = false;
     bool Trap_OK = false;
     bool Pirate_OK = false;
+
     Map_init();
+
     Player_init();
+
     while (!Treasure_OK){//Initialisation du trésor
         Treasure_init();
         if (Player_get_pos().x != Treasure_get_pos().x || Player_get_pos().y != Treasure_get_pos().y) {
@@ -296,9 +301,10 @@ void Initialisation(void)
             Pirate_OK = false;
         }
     }
+
     for (int i = 0; i < nb_trap_start; i++) {//Initialisation des pièges
         Trap_OK = false;
-        while (!Trap_OK) {
+        while (Trap_OK == false) {
         	Trap_OK = true;
             trap_tab[i] = Trap_new();
             if (Player_get_pos().x == Trap_get_pos(trap_tab[i]).x && Player_get_pos().y == Trap_get_pos(trap_tab[i]).y) {
@@ -313,24 +319,31 @@ void Initialisation(void)
                 }
             }
         }
+		#ifdef AFFICHER_PIEGES
+        	Map_set_case(Trap_get_pos(trap_tab[i]), Trap_get_pos(trap_tab[i]), TRAP_CHAR);
 
-#ifdef AFFICHER_PIEGES
-        Map_set_case(Trap_get_pos(trap_tab[i]), Trap_get_pos(trap_tab[i]), TRAP_CHAR);
-#endif
+				#if USE_ASSERT
+    				assert( Map_get_case( Trap_get_pos(trap_tab[i]()) ) == TRAP_CHAR );
+				#endif
+		#endif
     }
 
     Map_set_case(Player_get_pos(), Player_get_pos(), PLAYER_CHAR);
 #if USE_ASSERT
     assert(Map_get_case(Player_get_pos()) == PLAYER_CHAR);
 #endif
-    Map_set_case(Pirate_get_pos(), Pirate_get_pos(), PIRATE_CHAR);
 
+    Map_set_case(Pirate_get_pos(), Pirate_get_pos(), PIRATE_CHAR);
 #if USE_ASSERT
     assert(Map_get_case(Pirate_get_pos()) == PIRATE_CHAR);
 #endif
 
 #ifdef AFFICHER_TRESOR
     Map_set_case(Treasure_get_pos(), Treasure_get_pos(), TREASURE_CHAR);
+
+	#if USE_ASSERT
+    	assert(Map_get_case(Treasure_get_pos()) == TRESURE_CHAR);
+	#endif
 #endif
     Map_print();
     }

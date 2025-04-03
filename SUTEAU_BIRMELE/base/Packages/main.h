@@ -10,7 +10,7 @@
 #if AFFICHER_DEBUG
     #define AFFICHER_TRESOR
     #define AFFICHER_PIRATE
-    #define AFFICHER_PIEGES_
+    #define AFFICHER_PIEGES
 #endif
 #define USE_ASSERT 1
 
@@ -25,13 +25,9 @@ typedef struct{
 
 typedef enum{
     DEP_UP = 0,
-    DEP_DOWN,
+    DEP_DOWN ,
     DEP_LEFT,
     DEP_RIGHT
 }direction_t;
-
-void Initialisation(void);
-
-
 
 #endif //MAIN_H

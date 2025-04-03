@@ -34,11 +34,13 @@ action_t action;     ///< Action à exécuter
 bool Pirate_movement(direction_t dir);
 
 extern void Pirate_init(void){
+#if USE_ASSERT
+    assert(&pirate != NULL); // Vérification de l'allocation
+#endif
     pirate.position_x = rand()%WIDTH_MAP; // nombre entre 0 et 9
     pirate.position_y = rand()%HEIGHT_MAP; // nombre entre 0 et 9
 
 #if USE_ASSERT
-    assert(&pirate != NULL); // Vérification de l'allocation
     assert(pirate.position_x >= 0 && pirate.position_x < WIDTH_MAP);
     assert(pirate.position_y >= 0 && pirate.position_y < HEIGHT_MAP);
 #endif
@@ -51,7 +53,9 @@ extern Coordinates Pirate_get_pos(void){
 }
 
 extern bool Pirate_action(Coordinates pos_player){
-  if (pos_player.x == pirate.position_x && pirate.position_y > pos_player.y) {
+    int deppirate = 0;
+    bool moved = false;
+    if (pos_player.x == pirate.position_x && pirate.position_y > pos_player.y) {
         printf("pirate coming on your bottom \n");
         Pirate_movement(DEP_UP);
         return true;
@@ -71,7 +75,20 @@ extern bool Pirate_action(Coordinates pos_player){
         Pirate_movement(DEP_RIGHT);
         return true;
     }
-    return false;
+    else{
+		while (moved == false) {
+            deppirate = rand() % 4; // nombre entre 0 et 3, pour les 4 directions possibles
+            moved = Pirate_movement(deppirate);
+        	printf("pirate moving randomly val = %d\n", deppirate);
+        }
+        return true;
+    }
+
+#if USE_ASSERT
+    assert(0);
+#else
+	return false;
+#endif
 }
 
 extern bool Pirate_is_on_player(Coordinates pos_player){

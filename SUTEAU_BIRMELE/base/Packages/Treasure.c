@@ -24,10 +24,14 @@ static Treasure treasure;
 /// et entre 0 et HEIGHT_MAP - 1 pour Y.
 /// Des vérifications sont effectuées pour s'assurer que les coordonnées sont valides.
 extern void Treasure_init(void){
-  	treasure.position_x = rand()%10; // nombre entre 0 et 9
-  	treasure.position_y = rand()%10; // nombre entre 0 et 9
 #if USE_ASSERT
     assert(&treasure != NULL); // Vérification de l'allocation
+#endif
+
+  	treasure.position_x = rand()%10; // nombre entre 0 et 9
+  	treasure.position_y = rand()%10; // nombre entre 0 et 9
+
+#if USE_ASSERT
     assert(treasure.position_x >= 0 && treasure.position_x < WIDTH_MAP);
     assert(treasure.position_y >= 0 && treasure.position_y < HEIGHT_MAP);
 #endif

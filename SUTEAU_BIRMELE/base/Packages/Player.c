@@ -74,6 +74,9 @@ static const transition_t transition_table[NB_STATE][NB_EVENT] =
 /// @brief Initialise le joueur.
 /// @details Cette fonction met le joueur dans un état initial avec des valeurs par défaut.
 extern void Player_init(void) {
+#if USE_ASSERT
+    assert(&player != NULL); // Vérification de l'allocation
+#endif
     player.position_x = 0;
     player.position_y = 0;
     player.HP = HP_DEFAULT;
