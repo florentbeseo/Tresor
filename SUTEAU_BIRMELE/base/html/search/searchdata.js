@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "adhnpst",
   5: "pt",
   6: "aems",
-  7: "aeilnsv",
+  7: "aeilnpsv",
   8: "n"
 };
 

@@ -1,0 +1,14 @@
+@startuml
+state "État Initial" as S_AUCISSE
+state "Repos" as S_REPOS
+state "Actif" as S_ACTIF
+state "Mort" as S_DEAD
+
+[*] --> S_AUCISSE
+S_AUCISSE --> S_REPOS : Initialisation du joueur
+S_REPOS --> S_ACTIF : Déplacement (E_UP, E_DOWN, E_LEFT, E_RIGHT)
+S_ACTIF --> S_REPOS : Arrêt (E_STOP)
+S_REPOS --> S_DEAD : Joueur arrêté (E_STOP)
+S_ACTIF --> S_DEAD : PV à 0
+
+@enduml

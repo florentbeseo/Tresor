@@ -5,7 +5,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define AFFICHER_DEBUG 1
+#define AFFICHER_DEBUG 0
 
 #if AFFICHER_DEBUG
     #define AFFICHER_TRESOR

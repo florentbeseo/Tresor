@@ -9,8 +9,7 @@ Implémentation du module Player.
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}Player.\+h\char`\"{}}\newline
-Include dependency graph for Player.\+c\+:
-\nopagebreak
+Include dependency graph for Player.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -47,12 +46,18 @@ enum \mbox{\hyperlink{Player_8c_a2fb9b58e4e5f14f40af8b4a1425841f8}{event\+\_\+t}
  \}
 \begin{DoxyCompactList}\small\item\em Représente les événements pouvant affecter le joueur. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}} \{ \newline
-\mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}{A\+\_\+\+NOP}} = 0
+\mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}{A\+\_\+\+NOP}} = 0
+, \mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}{A\+\_\+\+GO\+\_\+\+UP}}
+, \mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}{A\+\_\+\+GO\+\_\+\+DOWN}}
+, \mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}{A\+\_\+\+GO\+\_\+\+LEFT}}
+, \newline
+\mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}{A\+\_\+\+GO\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}{A\+\_\+\+NOP}} = 0
 , \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}{A\+\_\+\+GO\+\_\+\+UP}}
 , \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}{A\+\_\+\+GO\+\_\+\+DOWN}}
-, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}{A\+\_\+\+GO\+\_\+\+LEFT}}
 , \newline
-\mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}{A\+\_\+\+GO\+\_\+\+RIGHT}}
+\mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}{A\+\_\+\+GO\+\_\+\+LEFT}}
+, \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}{A\+\_\+\+GO\+\_\+\+RIGHT}}
  \}
 \begin{DoxyCompactList}\small\item\em Représente les actions possibles pour le joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -60,7 +65,7 @@ enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t
 \item 
 void \mbox{\hyperlink{Player_8c_afdefe502f9fcd570d8d08518d4849047}{Player\+\_\+init}} (void)
 \begin{DoxyCompactList}\small\item\em Initialise le joueur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Player_8c_abb193b0e6f14dbcea9fe780b30940f2b}{Player\+\_\+set\+HP}} (int $\ast$HP)
+void \mbox{\hyperlink{Player_8c_a8d24792fea8f1e09af8e34bcbe576d05}{Player\+\_\+set\+HP}} (int HP)
 \begin{DoxyCompactList}\small\item\em Definit le nombre de HP du joueur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{Player_8c_ad89c352310996f4d0807ab91ae955bd8}{Player\+\_\+get\+HP}} (void)
 \begin{DoxyCompactList}\small\item\em Retourne les nonbre de HP du joueur. \end{DoxyCompactList}\item 
@@ -92,13 +97,33 @@ tanguy
 \index{Player.c@{Player.c}!action\_t@{action\_t}}
 \index{action\_t@{action\_t}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{action\_t}{action\_t}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Pirate_8c_aec2532b33d2d66f09e5b30ed3ded35ec}{action\+\_\+t}}}
 
 
 
 Représente les actions possibles pour le joueur. 
 
 \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_NOP@{A\_NOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_NOP@{A\_NOP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}} 
+A\+\_\+\+NOP&Aucune action. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_UP@{A\_GO\_UP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_UP@{A\_GO\_UP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c}} 
+A\+\_\+\+GO\+\_\+\+UP&Aller vers le haut. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_DOWN@{A\_GO\_DOWN}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_DOWN@{A\_GO\_DOWN}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2}} 
+A\+\_\+\+GO\+\_\+\+DOWN&Aller vers le bas. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_LEFT@{A\_GO\_LEFT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_LEFT@{A\_GO\_LEFT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab}} 
+A\+\_\+\+GO\+\_\+\+LEFT&Aller vers la gauche. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\_GO\_RIGHT@{A\_GO\_RIGHT}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_GO\_RIGHT@{A\_GO\_RIGHT}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5}} 
+A\+\_\+\+GO\+\_\+\+RIGHT&Aller vers la droite. \\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{A\_NOP@{A\_NOP}!Player.c@{Player.c}}\index{Player.c@{Player.c}!A\_NOP@{A\_NOP}}}\mbox{\Hypertarget{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}\label{Player_8c_aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462}} 
 A\+\_\+\+NOP&Aucune action. \\
 \hline
@@ -227,7 +252,7 @@ Un entier correspondant au HP du joueur.
 
 Reduit la vie du joueur de 1 HP. 
 
-Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false. \mbox{\Hypertarget{Player_8c_afdefe502f9fcd570d8d08518d4849047}\label{Player_8c_afdefe502f9fcd570d8d08518d4849047}} 
+Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi true. \mbox{\Hypertarget{Player_8c_afdefe502f9fcd570d8d08518d4849047}\label{Player_8c_afdefe502f9fcd570d8d08518d4849047}} 
 \index{Player.c@{Player.c}!Player\_init@{Player\_init}}
 \index{Player\_init@{Player\_init}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_init()}{Player\_init()}}
@@ -255,11 +280,11 @@ Gère le déplacement du joueur.
 \begin{DoxyReturn}{Returns}
 true si le déplacement a été effectué, sinon false. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Player_8c_abb193b0e6f14dbcea9fe780b30940f2b}\label{Player_8c_abb193b0e6f14dbcea9fe780b30940f2b}} 
+\mbox{\Hypertarget{Player_8c_a8d24792fea8f1e09af8e34bcbe576d05}\label{Player_8c_a8d24792fea8f1e09af8e34bcbe576d05}} 
 \index{Player.c@{Player.c}!Player\_setHP@{Player\_setHP}}
 \index{Player\_setHP@{Player\_setHP}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{Player\_setHP()}{Player\_setHP()}}
-{\footnotesize\ttfamily void Player\+\_\+set\+HP (\begin{DoxyParamCaption}\item[{int $\ast$}]{HP }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Player\+\_\+set\+HP (\begin{DoxyParamCaption}\item[{int}]{HP }\end{DoxyParamCaption})}
 
 
 

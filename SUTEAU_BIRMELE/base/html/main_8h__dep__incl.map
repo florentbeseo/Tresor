@@ -1,12 +1,14 @@
 <map id="Packages/main.h" name="Packages/main.h">
-<area shape="rect" id="node1" title=" " alt="" coords="368,5,499,32"/>
-<area shape="rect" id="node2" href="$main_8c.html" title="Module principal du jeu." alt="" coords="249,155,316,181"/>
-<area shape="rect" id="node3" href="$Map_8c.html" title="Implémentation du module de gestion de la carte de jeu." alt="" coords="800,80,925,107"/>
-<area shape="rect" id="node4" href="$Map_8h.html" title="Définition du module de gestion de la carte de jeu." alt="" coords="219,80,346,107"/>
-<area shape="rect" id="node5" href="$Player_8h.html" title="Définition du module Player." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node7" href="$Trap_8c.html" title="Implémentation du module de gestion des pièges." alt="" coords="371,155,495,181"/>
-<area shape="rect" id="node8" href="$Trap_8h.html" title=" " alt="" coords="371,80,496,107"/>
-<area shape="rect" id="node9" href="$Treasure_8c.html" title=" " alt="" coords="604,155,756,181"/>
-<area shape="rect" id="node10" href="$Treasure_8h.html" title=" " alt="" coords="521,80,674,107"/>
-<area shape="rect" id="node6" href="$Player_8c.html" title="Implémentation du module Player." alt="" coords="6,155,143,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="541,5,671,32"/>
+<area shape="rect" id="node2" href="$main_8c.html" title="Module principal du jeu." alt="" coords="430,155,497,181"/>
+<area shape="rect" id="node3" href="$Map_8c.html" title="Implémentation du module de gestion de la carte de jeu." alt="" coords="25,80,150,107"/>
+<area shape="rect" id="node4" href="$Map_8h.html" title="Définition du module de gestion de la carte de jeu." alt="" coords="385,80,512,107"/>
+<area shape="rect" id="node5" href="$Pirate_8c.html" title=" " alt="" coords="48,155,183,181"/>
+<area shape="rect" id="node6" href="$Pirate_8h.html" title="Définition du module de gestion du pirate." alt="" coords="174,80,310,107"/>
+<area shape="rect" id="node7" href="$Player_8h.html" title="Définition du module Player." alt="" coords="537,80,675,107"/>
+<area shape="rect" id="node9" href="$Trap_8c.html" title="Implémentation du module de gestion des pièges." alt="" coords="725,155,849,181"/>
+<area shape="rect" id="node10" href="$Trap_8h.html" title="Définition du module de gestion des pièges." alt="" coords="699,80,825,107"/>
+<area shape="rect" id="node11" href="$Treasure_8c.html" title="Implémentation de la gestion du trésor dans le jeu." alt="" coords="958,155,1110,181"/>
+<area shape="rect" id="node12" href="$Treasure_8h.html" title=" " alt="" coords="900,80,1053,107"/>
+<area shape="rect" id="node8" href="$Player_8c.html" title="Implémentation du module Player." alt="" coords="537,155,675,181"/>
 </map>

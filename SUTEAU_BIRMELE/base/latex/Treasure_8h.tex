@@ -2,15 +2,15 @@
 \label{Treasure_8h}\index{Packages/Treasure.h@{Packages/Treasure.h}}
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}assert.\+h\char`\"{}}\newline
-Include dependency graph for Treasure.\+h\+:
-\nopagebreak
+Include dependency graph for Treasure.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=195pt]{Treasure_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,9 +26,9 @@ typedef struct \mbox{\hyperlink{structTreasure__s}{Treasure\+\_\+s}} \mbox{\hype
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Treasure_8h_a9bb5f3e1cececb9ec652033f2bd54420}{Treasure\+\_\+init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise la position du trésor de manière aléatoire. \end{DoxyCompactList}\item 
 Coordinates \mbox{\hyperlink{Treasure_8h_a737da132bbf06fef8d5b9707ed43878f}{Treasure\+\_\+get\+\_\+pos}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Récupère la position actuelle du trésor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Typedef Documentation}
@@ -47,9 +47,21 @@ Coordinates \mbox{\hyperlink{Treasure_8h_a737da132bbf06fef8d5b9707ed43878f}{Trea
 \doxysubsubsection{\texorpdfstring{Treasure\_get\_pos()}{Treasure\_get\_pos()}}
 {\footnotesize\ttfamily Coordinates Treasure\+\_\+get\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Récupère la position actuelle du trésor. 
+
+\begin{DoxyReturn}{Returns}
+Les coordonnées du trésor sous forme d\textquotesingle{}une structure Coordinates. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{Treasure_8h_a9bb5f3e1cececb9ec652033f2bd54420}\label{Treasure_8h_a9bb5f3e1cececb9ec652033f2bd54420}} 
 \index{Treasure.h@{Treasure.h}!Treasure\_init@{Treasure\_init}}
 \index{Treasure\_init@{Treasure\_init}!Treasure.h@{Treasure.h}}
 \doxysubsubsection{\texorpdfstring{Treasure\_init()}{Treasure\_init()}}
 {\footnotesize\ttfamily void Treasure\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Initialise la position du trésor de manière aléatoire. 
+
+La position est générée aléatoirement entre 0 et WIDTH\+\_\+\+MAP -\/ 1 pour X et entre 0 et HEIGHT\+\_\+\+MAP -\/ 1 pour Y. Des vérifications sont effectuées pour s\textquotesingle{}assurer que les coordonnées sont valides. 

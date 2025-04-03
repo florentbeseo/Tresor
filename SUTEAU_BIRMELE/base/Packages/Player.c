@@ -117,6 +117,8 @@ extern Coordinates Player_get_pos(void) {
 extern void Player_start(void) {
 #if USE_ASSERT
     assert(player.state == S_DEAD);
+    assert(player.position_x == 0 && player.position_y == 0);
+    assert(player.HP == HP_DEFAULT);
 #endif
     player.state = S_REPOS;
 }
@@ -131,6 +133,7 @@ extern void Player_stop(void) {
 /// @return true si le déplacement a été effectué, sinon false.
 extern bool Player_movement(direction_t dir) {
 #if USE_ASSERT
+    assert(player.state != S_DEAD);
   	assert(player.state == S_REPOS);
 #endif
     switch(dir) {

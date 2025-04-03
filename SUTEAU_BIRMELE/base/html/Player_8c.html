@@ -91,7 +91,7 @@ Include dependency graph for Player.c:</div>
 <area shape="rect" title=" " alt="" coords="229,304,304,331"/>
 <area shape="rect" href="Player_8h.html" title="Définition du module Player." alt="" coords="221,80,296,107"/>
 <area shape="rect" href="main_8h.html" title=" " alt="" coords="304,155,371,181"/>
-<area shape="rect" href="Trap_8h.html" title=" " alt="" coords="307,229,368,256"/>
+<area shape="rect" href="Trap_8h.html" title="Définition du module de gestion des pièges." alt="" coords="307,229,368,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -130,12 +130,18 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:a2fb9b58e4e5f14f40af8b4a1425841f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente les événements pouvant affecter le joueur.  <a href="Player_8c.html#a2fb9b58e4e5f14f40af8b4a1425841f8">More...</a><br /></td></tr>
 <tr class="separator:a2fb9b58e4e5f14f40af8b4a1425841f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec2532b33d2d66f09e5b30ed3ded35ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">action_t</a> { <br />
-&#160;&#160;<a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462">A_NOP</a> = 0
+&#160;&#160;<a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462">A_NOP</a> = 0
+, <a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c">A_GO_UP</a>
+, <a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2">A_GO_DOWN</a>
+, <a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab">A_GO_LEFT</a>
+, <br />
+&#160;&#160;<a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5">A_GO_RIGHT</a>
+, <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462">A_NOP</a> = 0
 , <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c">A_GO_UP</a>
 , <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2">A_GO_DOWN</a>
-, <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab">A_GO_LEFT</a>
 , <br />
-&#160;&#160;<a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5">A_GO_RIGHT</a>
+&#160;&#160;<a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab">A_GO_LEFT</a>
+, <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5">A_GO_RIGHT</a>
 <br />
  }</td></tr>
 <tr class="memdesc:aec2532b33d2d66f09e5b30ed3ded35ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente les actions possibles pour le joueur.  <a href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">More...</a><br /></td></tr>
@@ -146,9 +152,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afdefe502f9fcd570d8d08518d4849047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#afdefe502f9fcd570d8d08518d4849047">Player_init</a> (void)</td></tr>
 <tr class="memdesc:afdefe502f9fcd570d8d08518d4849047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le joueur.  <a href="Player_8c.html#afdefe502f9fcd570d8d08518d4849047">More...</a><br /></td></tr>
 <tr class="separator:afdefe502f9fcd570d8d08518d4849047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb193b0e6f14dbcea9fe780b30940f2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#abb193b0e6f14dbcea9fe780b30940f2b">Player_setHP</a> (int *HP)</td></tr>
-<tr class="memdesc:abb193b0e6f14dbcea9fe780b30940f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definit le nombre de HP du joueur.  <a href="Player_8c.html#abb193b0e6f14dbcea9fe780b30940f2b">More...</a><br /></td></tr>
-<tr class="separator:abb193b0e6f14dbcea9fe780b30940f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d24792fea8f1e09af8e34bcbe576d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#a8d24792fea8f1e09af8e34bcbe576d05">Player_setHP</a> (int HP)</td></tr>
+<tr class="memdesc:a8d24792fea8f1e09af8e34bcbe576d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definit le nombre de HP du joueur.  <a href="Player_8c.html#a8d24792fea8f1e09af8e34bcbe576d05">More...</a><br /></td></tr>
+<tr class="separator:a8d24792fea8f1e09af8e34bcbe576d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad89c352310996f4d0807ab91ae955bd8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Player_8c.html#ad89c352310996f4d0807ab91ae955bd8">Player_getHP</a> (void)</td></tr>
 <tr class="memdesc:ad89c352310996f4d0807ab91ae955bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les nonbre de HP du joueur.  <a href="Player_8c.html#ad89c352310996f4d0807ab91ae955bd8">More...</a><br /></td></tr>
 <tr class="separator:ad89c352310996f4d0807ab91ae955bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,7 +186,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Player_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">action_t</a></td>
+          <td class="memname">enum <a class="el" href="Pirate_8c.html#aec2532b33d2d66f09e5b30ed3ded35ec">action_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -188,6 +194,16 @@ Functions</h2></td></tr>
 <p>Représente les actions possibles pour le joueur. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462"></a>A_NOP&#160;</td><td class="fielddoc"><p>Aucune action. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c"></a>A_GO_UP&#160;</td><td class="fielddoc"><p>Aller vers le haut. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca6c96238fcc018c1c871a41dccac9c4c2"></a>A_GO_DOWN&#160;</td><td class="fielddoc"><p>Aller vers le bas. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca55524ee5e2c2112a20c117c624e355ab"></a>A_GO_LEFT&#160;</td><td class="fielddoc"><p>Aller vers la gauche. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecaf3c795aeaedace1d100d11971ffd69e5"></a>A_GO_RIGHT&#160;</td><td class="fielddoc"><p>Aller vers la droite. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35ecabbecf424004ad6c3317f882a54632462"></a>A_NOP&#160;</td><td class="fielddoc"><p>Aucune action. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aec2532b33d2d66f09e5b30ed3ded35eca052316be6f81b0bea0a38fff7c68836c"></a>A_GO_UP&#160;</td><td class="fielddoc"><p>Aller vers le haut. </p>
 </td></tr>
@@ -319,7 +335,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reduit la vie du joueur de 1 HP. </p>
-<p>Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false. </p>
+<p>Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi true. </p>
 
 </div>
 </div>
@@ -371,8 +387,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abb193b0e6f14dbcea9fe780b30940f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb193b0e6f14dbcea9fe780b30940f2b">&#9670;&nbsp;</a></span>Player_setHP()</h2>
+<a id="a8d24792fea8f1e09af8e34bcbe576d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d24792fea8f1e09af8e34bcbe576d05">&#9670;&nbsp;</a></span>Player_setHP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +396,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Player_setHP </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>HP</em></td><td>)</td>
           <td></td>
         </tr>

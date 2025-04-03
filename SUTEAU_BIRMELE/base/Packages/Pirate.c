@@ -10,13 +10,6 @@
 #include "main.h"
 #include <time.h>
 
-typedef enum{
-    S_BLIND = 0,
-    S_SEE_FROM_LEFT,
-    S_SEE_FROM_RIGHT,
-    S_SEE_FROM_UP,
-    S_SEE_FROM_DOWN,
-}Pirate_state_t;
 
 struct Pirate_s{
     int position_x;
@@ -36,6 +29,9 @@ typedef enum
 
 static Pirate pirate;
 action_t action;     ///< Action à exécuter
+
+//Prototype
+bool Pirate_movement(direction_t dir);
 
 extern void Pirate_init(void){
     pirate.position_x = rand()%WIDTH_MAP; // nombre entre 0 et 9

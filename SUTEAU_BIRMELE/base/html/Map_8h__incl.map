@@ -1,6 +1,6 @@
 <map id="Packages/Map.h" name="Packages/Map.h">
 <area shape="rect" id="node1" title="Définition du module de gestion de la carte de jeu." alt="" coords="5,5,132,32"/>
 <area shape="rect" id="node2" href="$main_8h.html" title=" " alt="" coords="35,80,102,107"/>
-<area shape="rect" id="node3" href="$Trap_8h.html" title=" " alt="" coords="38,155,99,181"/>
+<area shape="rect" id="node3" href="$Trap_8h.html" title="Définition du module de gestion des pièges." alt="" coords="38,155,99,181"/>
 <area shape="rect" id="node4" title=" " alt="" coords="31,229,106,256"/>
 </map>

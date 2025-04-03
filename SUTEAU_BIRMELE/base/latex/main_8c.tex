@@ -12,12 +12,12 @@ Module principal du jeu.
 {\ttfamily \#include \char`\"{}Packages/getch.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Map.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Packages/\+Pirate.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Treasure.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/\+Trap.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Packages/main.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
-Include dependency graph for main.\+c\+:
-\nopagebreak
+Include dependency graph for main.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,10 +37,11 @@ Include dependency graph for main.\+c\+:
 enum \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963b}{MAE\+\_\+\+Global}} \{ \newline
 \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba0cb1b2c6a7db1f1084886c98909a3f36}{INIT}} = 0
 , \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bac527082b6bafde5a05787a318554bdcf}{AQUISITION\+\_\+\+CLAVIER}}
-, \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}{VERIF\+\_\+\+VICTOIRE}}
-, \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}{VICTOIRE}}
+, \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bad0836bf3085dd9a44656275259a76394}{VERIF\+\_\+\+END}}
+, \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba62b5ce354249fb35da26bbf88fd45da9}{PIRATE}}
 , \newline
-\mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa}{LOOSE}}
+\mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}{VICTOIRE}}
+, \mbox{\hyperlink{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba68ea0be7268fdd64402adf4bf7a1dafa}{LOOSE}}
  \}
 \begin{DoxyCompactList}\small\item\em États possibles de la machine à états globale. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -106,8 +107,12 @@ INIT&État d\textquotesingle{}initialisation. \\
 AQUISITION\+\_\+\+CLAVIER&État d\textquotesingle{}acquisition clavier. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{VERIF\_VICTOIRE@{VERIF\_VICTOIRE}!main.c@{main.c}}\index{main.c@{main.c}!VERIF\_VICTOIRE@{VERIF\_VICTOIRE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963baf8af46d09ecd221b8233778ec249b9e9}} 
-VERIF\+\_\+\+VICTOIRE&État de vérification de la victoire. \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERIF\_END@{VERIF\_END}!main.c@{main.c}}\index{main.c@{main.c}!VERIF\_END@{VERIF\_END}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bad0836bf3085dd9a44656275259a76394}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963bad0836bf3085dd9a44656275259a76394}} 
+VERIF\+\_\+\+END&État de vérification de la victoire. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PIRATE@{PIRATE}!main.c@{main.c}}\index{main.c@{main.c}!PIRATE@{PIRATE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba62b5ce354249fb35da26bbf88fd45da9}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba62b5ce354249fb35da26bbf88fd45da9}} 
+PIRATE&État de vérification de la victoire. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{VICTOIRE@{VICTOIRE}!main.c@{main.c}}\index{main.c@{main.c}!VICTOIRE@{VICTOIRE}}}\mbox{\Hypertarget{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}\label{main_8c_a6bf0ea096743a0f3be10fe5a6df0963ba9da4997c58011dfb0cde2399c22ce86d}} 

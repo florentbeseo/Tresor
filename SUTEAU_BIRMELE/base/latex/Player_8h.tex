@@ -8,8 +8,7 @@ Définition du module Player.
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}assert.\+h\char`\"{}}\newline
-Include dependency graph for Player.\+h\+:
-\nopagebreak
+Include dependency graph for Player.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,7 +38,7 @@ void \mbox{\hyperlink{Player_8h_a0e062e6366b868d8212f7e93908a1cb6}{Player\+\_\+s
 \begin{DoxyCompactList}\small\item\em Arrête le joueur et la MaE. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{Player_8h_ad89c352310996f4d0807ab91ae955bd8}{Player\+\_\+get\+HP}} (void)
 \begin{DoxyCompactList}\small\item\em Retourne les nonbre de HP du joueur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}{Player\+\_\+set\+HP}} (int $\ast$HP)
+void \mbox{\hyperlink{Player_8h_a8d24792fea8f1e09af8e34bcbe576d05}{Player\+\_\+set\+HP}} (int HP)
 \begin{DoxyCompactList}\small\item\em Definit le nombre de HP du joueur. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{Player_8h_a4847135093e06aa37a5eb44407183538}{Player\+\_\+hit}} (void)
 \begin{DoxyCompactList}\small\item\em Reduit la vie du joueur de 1 HP. \end{DoxyCompactList}\item 
@@ -110,7 +109,7 @@ Un entier correspondant au HP du joueur.
 
 Reduit la vie du joueur de 1 HP. 
 
-Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi false. \mbox{\Hypertarget{Player_8h_afdefe502f9fcd570d8d08518d4849047}\label{Player_8h_afdefe502f9fcd570d8d08518d4849047}} 
+Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi true. \mbox{\Hypertarget{Player_8h_afdefe502f9fcd570d8d08518d4849047}\label{Player_8h_afdefe502f9fcd570d8d08518d4849047}} 
 \index{Player.h@{Player.h}!Player\_init@{Player\_init}}
 \index{Player\_init@{Player\_init}!Player.h@{Player.h}}
 \doxysubsubsection{\texorpdfstring{Player\_init()}{Player\_init()}}
@@ -138,11 +137,11 @@ Gère le déplacement du joueur.
 \begin{DoxyReturn}{Returns}
 true si le déplacement a été effectué, sinon false. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}\label{Player_8h_abb193b0e6f14dbcea9fe780b30940f2b}} 
+\mbox{\Hypertarget{Player_8h_a8d24792fea8f1e09af8e34bcbe576d05}\label{Player_8h_a8d24792fea8f1e09af8e34bcbe576d05}} 
 \index{Player.h@{Player.h}!Player\_setHP@{Player\_setHP}}
 \index{Player\_setHP@{Player\_setHP}!Player.h@{Player.h}}
 \doxysubsubsection{\texorpdfstring{Player\_setHP()}{Player\_setHP()}}
-{\footnotesize\ttfamily void Player\+\_\+set\+HP (\begin{DoxyParamCaption}\item[{int $\ast$}]{HP }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Player\+\_\+set\+HP (\begin{DoxyParamCaption}\item[{int}]{HP }\end{DoxyParamCaption})}
 
 
 

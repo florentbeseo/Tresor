@@ -11,6 +11,7 @@ class Player {
     + Player_setHP(int HP): void
     + Player_hit(): bool
     + Player_get_pos(): Coordinates
+    - run(event_t event): void
 }
 class Map {
     - game_map: char **
@@ -34,20 +35,18 @@ class Pirate{
     + Pirate_init(): void
     + Pirate_is_on_player(Coordinates pos_player): bool
     + Pirate_see_player(Coordinates pos): Pirate_state_t
-    + Pirate_movement(direction_t dir): bool
+    - Pirate_movement(direction_t dir): bool
+}
+
+class Trap{
+    - position_x: int
+    - position_y: int
+    - numTrap: int
+    + Trap_get_pos(Trap * trap): Coordinates
+    + Trap_get_number(Trap * trap): int
+    + Trap_new(): Trap *
+    + Trap_delete(Trap * this): void
 }
 
 
-enum MAE_Global {
-    INIT,
-    AQUISITION_CLAVIER,
-    VERIF_VICTOIRE,
-    PIRATE,
-    VICTOIRE,
-    LOOSE
-}
-
-Player -- Map : "Interagit avec"
-Player -- Treasure : "Vérifie position pour victoire"
-Map -- Treasure : "Place le trésor"
 @enduml

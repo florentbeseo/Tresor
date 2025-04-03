@@ -1,7 +1,7 @@
-
-//
-// Created by florent on 28/03/25.
-//
+/// @file Trap.h
+/// @brief Définition du module de gestion des pièges.
+/// @author Florent
+/// @date 26/03/25
 
 #ifndef TRAP_H
 #define TRAP_H

@@ -17,11 +17,42 @@
 
 /**
  * @mainpage
- * @brief Module principal du jeu.
+ * @brief Diagramme class.
  *
  * @dotfile diagrameClass.puml
- */
-
+ * \n
+ * \n
+ * README \n
+ * \n
+ * Ce jeu est le jeu du Tresor. Dans ce jeu un joueur se déplace dans une grille qui comporte des pièges, un pirate et surtout un trésor.\n
+ * Le but du joueur est de trouver le trésor dans la grille, sous mourir ni se faire attraper par le pirate.\n
+ * Dans la grille les pièges et le trésor sont cachés.\n
+ * Pour débuter une partie, l'utilisateur doit lancer le jeu en ligne de commande "./game" dans la CLI.\n
+ * Une fois le jeu lancé, il doit entrer le nombre de pièges qui seront placés dans la grille, il peut placer ente 0 et 20 pièges.\n
+ * Plus le nombre de pièges est élevé plus la dificulté du jeu sera élévée.\n
+ * Une fois le nombre de pièges inscrit, l'utilisateur appuie sur la touche "ENTRER" pour valider.\n
+ * L'appui sur la touche lancera la partie.\n
+ * \n
+ * Dans la grille affiché dans la CLI.\n
+ * Le joueur est représenté par un "j". \n
+ * Le pirate est représenté par un "P". \n
+ * \n
+ * Lorsqu'une partie est lancée :\n
+ * A tout moment le joueur peut quitter le jeu en appyuant sur la touche "q" du clavier.\n
+ * Pour déplacer le joueur l'utilisateur peut utiliser les touches suivante :\n
+ * "i" -> Déplacement du joueur vers le haut. \n
+ * "k" -> Déplacement du joueur vers le bas. \n
+ * "j" -> Déplacement du joueur vers la gauche. \n
+ * "l" -> Déplacement du joueur vers la droite. \n
+ * \n
+ * \n
+ * Le joueur a 5 vies (HP).\n
+ * Lorsqu'un joueur tombe sur un piège il perd 1 HP.\n
+ * Lorsque le pirate attrape le joueur, le joueur perd 1 HP.\n
+ * \n
+ * \n
+ * Si le joueur atteint 0 HP, la partie est perdu
+**/
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -97,7 +128,7 @@ int main()
 
                 while (!nb_trap_OK) {
                     printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
-                    if (scanf("%d",&nb_trap_start)==1){
+                    if (scanf("%d",&nb_trap_start)==1){//Gesiton erreur d'execution lies au scanf
                         if (nb_trap_start >= 0 && nb_trap_start <= NB_TRAP_MAX) {
                             nb_trap_OK = true;
                         } else {
