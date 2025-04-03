@@ -113,9 +113,11 @@ int main()
                 printf("nb_trap : %d\n", nb_trap_start);
                 nb_trap = nb_trap_start;
                 Initialisation();
+#if USE_ASSERT
                 for (int testTrap = 0; testTrap < nb_trap_start; testTrap++) {
                     assert(trap_tab[testTrap] != NULL);
                 }
+#endif
                 Player_start();
                 OldPosPlayer = Player_get_pos();
                 OldPosPirate = Pirate_get_pos();
@@ -287,11 +289,13 @@ void Initialisation(void)
     }
 
     Map_set_case(Player_get_pos(), Player_get_pos(), PLAYER_CHAR);
+#if USE_ASSERT
     assert(Map_get_case(Player_get_pos()) == PLAYER_CHAR);
-
+#endif
     Map_set_case(Pirate_get_pos(), Pirate_get_pos(), PIRATE_CHAR);
+
+#if USE_ASSERT
     assert(Map_get_case(Pirate_get_pos()) == PIRATE_CHAR);
-#ifdef AFFICHER_PIRATE
 #endif
 
 #ifdef AFFICHER_TRESOR

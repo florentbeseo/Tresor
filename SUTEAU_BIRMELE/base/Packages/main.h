@@ -12,6 +12,7 @@
     #define AFFICHER_PIRATE
     #define AFFICHER_PIEGES_
 #endif
+#define USE_ASSERT 1
 
 #define HEIGHT_MAP 10
 #define WIDTH_MAP 10

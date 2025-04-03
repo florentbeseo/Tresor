@@ -94,12 +94,14 @@ extern int Player_getHP(void){
 /// @brief Reduit la vie du joueur de 1 HP.
 /// @details Cette fonction enlève un PV au joueur a chaque appel, si le joueur se retrouve à 0HP la fonction renvoi true.
 extern bool Player_hit(void){
- assert(player.HP > 0);
- player.HP--;
- if (player.HP == 0) {
-   return true;
- }
- return false;
+#if USE_ASSERT
+	assert(player.HP > 0);
+#endif
+    player.HP--;
+    if (player.HP == 0) {
+      return true;
+    }
+    return false;
 }
 
 /// @brief Retourne la position actuelle du joueur.
@@ -113,7 +115,9 @@ extern Coordinates Player_get_pos(void) {
 
 /// @brief Démarre le joueur en le mettant à l'état REPOS.
 extern void Player_start(void) {
+#if USE_ASSERT
     assert(player.state == S_DEAD);
+#endif
     player.state = S_REPOS;
 }
 
@@ -126,44 +130,51 @@ extern void Player_stop(void) {
 /// @param dir Direction du déplacement.
 /// @return true si le déplacement a été effectué, sinon false.
 extern bool Player_movement(direction_t dir) {
-    assert(player.state == S_REPOS);
-    bool moved = false;
+#if USE_ASSERT
+  	assert(player.state == S_REPOS);
+#endif
     switch(dir) {
         case DEP_UP:
             if (!(player.position_y <= 0)) {
                 run(E_UP);
-                moved = true;
+                return true;
             }
             break;
         case DEP_DOWN:
             if (!(player.position_y >= HEIGHT_MAP - 1)) {
                 run(E_DOWN);
-                moved = true;
+                return true;
             }
             break;
         case DEP_LEFT:
             if (!(player.position_x <= 0)) {
                 run(E_LEFT);
-                moved = true;
+                return true;
             }
             break;
         case DEP_RIGHT:
             if (!(player.position_x >= WIDTH_MAP - 1)) {
                 run(E_RIGHT);
-                moved = true;
+                return true;
             }
             break;
         default:
+#if USE_ASSERT
             assert(0);
+#else
+			return false;
+#endif
             break;
     }
-    return moved;
+    return false;
 }
 
 /// @brief Exécute une transition d'état en fonction de l'événement reçu.
 /// @param event L'événement à traiter.
 static void run(event_t event) {
+#if USE_ASSERT
     assert(player.state != S_DEAD);
+#endif
     state_t destination = transition_table[player.state][event].destination;
     action_t todo_action = transition_table[player.state][event].action;
     switch(todo_action) {
@@ -182,7 +193,11 @@ static void run(event_t event) {
             player.position_x++;
             break;
         default:
+#if USE_ASSERT
             assert(0);
+#else
+			return false;
+#endif
             break;
     }
     if (destination != S_AUCISSE) {

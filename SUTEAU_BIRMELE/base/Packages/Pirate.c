@@ -18,9 +18,6 @@ typedef enum{
     S_SEE_FROM_DOWN,
 }Pirate_state_t;
 
-
-
-
 struct Pirate_s{
     int position_x;
     int position_y;
@@ -44,9 +41,11 @@ extern void Pirate_init(void){
     pirate.position_x = rand()%WIDTH_MAP; // nombre entre 0 et 9
     pirate.position_y = rand()%HEIGHT_MAP; // nombre entre 0 et 9
 
+#if USE_ASSERT
     assert(&pirate != NULL); // Vérification de l'allocation
     assert(pirate.position_x >= 0 && pirate.position_x < WIDTH_MAP);
     assert(pirate.position_y >= 0 && pirate.position_y < HEIGHT_MAP);
+#endif
 }
 extern Coordinates Pirate_get_pos(void){
     Coordinates pos_Tresor;
@@ -115,7 +114,11 @@ extern bool Pirate_movement(direction_t dir) {
             }
             break;
         default:
+#if USE_ASSERT
             assert(0);
+#else
+			return false;
+#endif
             break;
     }
     return moved;
