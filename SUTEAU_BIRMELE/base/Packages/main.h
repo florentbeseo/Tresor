@@ -16,7 +16,7 @@
 
 #define HEIGHT_MAP 10
 #define WIDTH_MAP 10
-#define HP_DEFAULT 3
+#define HP_DEFAULT 5
 
 typedef struct{
     int x;

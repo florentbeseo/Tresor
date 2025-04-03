@@ -321,7 +321,7 @@ static void Initialisation(void)
                     Trap_OK = false;
                 }
             }
-            if (TRAP_OK == false) {
+            if (Trap_OK == false) {
                 Trap_delete(trap_tab[i]);
             }
         }
