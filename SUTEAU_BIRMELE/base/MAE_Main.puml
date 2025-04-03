@@ -1,0 +1,19 @@
+@startuml
+
+
+[*] --> game
+
+state "GAME" as game {
+
+    [*] --> INIT
+    INIT --> AQUISITION_CLAVIER
+    AQUISITION_CLAVIER --> VERIF_END
+    VERIF_END --> VICTOIRE : Tresor Trouve
+    VERIF_END --> LOOSE : Mort
+    VERIF_END --> AQUISITION_CLAVIER
+    VICTOIRE --> INIT
+    LOOSE --> INIT
+}
+
+game --> [*]
+@enduml

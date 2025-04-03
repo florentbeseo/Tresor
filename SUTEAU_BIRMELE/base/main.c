@@ -20,6 +20,9 @@
  * @brief Diagramme class.
  *
  * @dotfile diagrameClass.puml
+
+Machine à états du jeu.
+ * @dotfile MAE_Main.puml
  * \n
  * \n
  * README \n
