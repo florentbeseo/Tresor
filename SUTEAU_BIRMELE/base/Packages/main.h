@@ -10,7 +10,7 @@
 #if AFFICHER_DEBUG
     #define AFFICHER_TRESOR
     #define AFFICHER_PIRATE
-    #define AFFICHER_PIEGES
+    #define AFFICHER_PIEGES_
 #endif
 
 #define HEIGHT_MAP 10

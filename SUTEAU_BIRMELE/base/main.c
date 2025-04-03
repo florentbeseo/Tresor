@@ -57,7 +57,7 @@ typedef enum
 {
     INIT = 0, ///< État d'initialisation.
     AQUISITION_CLAVIER, ///< État d'acquisition clavier.
-    VERIF_VICTOIRE, ///< État de vérification de la victoire.
+    VERIF_END, ///< État de vérification de la victoire.
     PIRATE, ///< État de vérification de la victoire.
     VICTOIRE, ///< État de victoire.
     LOOSE ///< Etat de défaite du joueur.
@@ -98,7 +98,7 @@ int main()
                 while (!nb_trap_OK) {
                     printf("Combien de pièges voulez vous ? (max %d)\n", NB_TRAP_MAX);
                     if (scanf("%d",&nb_trap_start)==1){
-                        if (nb_trap_start > 0 && nb_trap_start <= NB_TRAP_MAX) {
+                        if (nb_trap_start >= 0 && nb_trap_start <= NB_TRAP_MAX) {
                             nb_trap_OK = true;
                         } else {
                             printf("Nombre de pièges invalide. Veuillez réessayer.\n");
@@ -146,26 +146,28 @@ int main()
                 if (moved) {
                     Map_set_case(Player_get_pos(), OldPosPlayer, PLAYER_CHAR);
                     OldPosPlayer = Player_get_pos();
-                    Map_print();
-                    printf("pieges : %d\n", nb_trap);
-                    printf("Joueur HP : %d\n", Player_getHP());
-
                     pirate_moved = Pirate_action(Player_get_pos());
                     if (pirate_moved) {
                         Map_set_case(Pirate_get_pos(), OldPosPirate, PIRATE_CHAR);
                         OldPosPirate = Pirate_get_pos();
                     }
-                }
-                GameState = VERIF_VICTOIRE;
+                    Map_print();
+                    printf("pieges : %d\n", nb_trap);
+                    printf("Joueur HP : %d\n", Player_getHP());
+          		}
+                GameState = VERIF_END;
                 break;
-            case VERIF_VICTOIRE:
+            case VERIF_END:
+                if (moved) {
+
 #ifdef AFFICHER_TRESOR
                 printf("pos joueur : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
-                printf("pos tresor : x : %d /y: %d\n\n", Treasure_get_pos().x, Treasure_get_pos().y);
+                printf("pos tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
 #endif
-
+#ifdef AFFICHER_PIRATE
                 printf("pirate : x : %d /y: %d\n", Pirate_get_pos().x, Pirate_get_pos().y);
-
+#endif
+				}
 #ifdef AFFICHER_PIEGES
                 for (int i = 0; i < nb_trap; i++) {
                     if (trap_tab[i] != NULL)
@@ -253,19 +255,13 @@ void Initialisation(void)
     while (Pirate_OK == false){//Initialisation du pirate
         Pirate_init();
         Pirate_OK = true;
+
         if (Treasure_get_pos().x == Pirate_get_pos().x && Treasure_get_pos().y == Pirate_get_pos().y) {
-          	printf("creation pirate, cas faux : tres x == pirate x\n");
-          	printf("pirate pos : x : %d /y: %d\n", Pirate_get_pos().x, Pirate_get_pos().y);
-            printf("tresor pos : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
-            Pirate_OK = false;
+			Pirate_OK = false;
         }
         if (Player_get_pos().x == Pirate_get_pos().x && Player_get_pos().y == Pirate_get_pos().y) {
-            printf("creation pirate, cas faux : player x == pirate x\n");
-          	printf("pirate pos : x : %d /y: %d\n", Pirate_get_pos().x, Pirate_get_pos().y);
-            printf("player pos : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
-          Pirate_OK = false;
+            Pirate_OK = false;
         }
-        printf("creation pirate fin : pirate ok = %d\n", Pirate_OK);
     }
     for (int i = 0; i < nb_trap_start; i++) {//Initialisation des pièges
         Trap_OK = false;
@@ -302,7 +298,4 @@ void Initialisation(void)
     Map_set_case(Treasure_get_pos(), Treasure_get_pos(), TREASURE_CHAR);
 #endif
     Map_print();
-    printf("player : x : %d /y: %d\n", Player_get_pos().x, Player_get_pos().y);
-    printf("pirate : x : %d /y: %d\n", Pirate_get_pos().x, Pirate_get_pos().y);
-    printf("tresor : x : %d /y: %d\n", Treasure_get_pos().x, Treasure_get_pos().y);
-}
+    }
